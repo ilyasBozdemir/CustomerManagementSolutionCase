@@ -4,7 +4,7 @@ using CustomerManagement.Domain.Seedwork;
 
 namespace CustomerManagement.Application.Features.Commands.UpdateCustomer;
 
-public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommand, UpdateCustomerCommandResponse>
+public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommandRequest, UpdateCustomerCommandResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
 
@@ -13,7 +13,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<UpdateCustomerCommandResponse> Handle(UpdateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<UpdateCustomerCommandResponse> Handle(UpdateCustomerCommandRequest request, CancellationToken cancellationToken)
     {
         try
         {
@@ -31,8 +31,8 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
             existingCustomer.Email = new Domain.ValueObjects.Email(request.Email);
             existingCustomer.BankAccountNumber = new Domain.ValueObjects.BankAccountNumber(request.BankAccountNumber);
 
-            var customerRepository = _unitOfWork.GetWriteRepository<Customer>();
-            customerRepository.Update(existingCustomer);
+            var customerWriteRepository = _unitOfWork.GetWriteRepository<Customer>();
+            customerWriteRepository.Update(existingCustomer);
 
             return new UpdateCustomerCommandResponse(true, 200, existingCustomer);
         }
