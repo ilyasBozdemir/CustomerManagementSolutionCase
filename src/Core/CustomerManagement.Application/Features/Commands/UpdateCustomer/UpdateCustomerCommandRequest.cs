@@ -1,14 +1,10 @@
 ﻿using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CustomerManagement.Application.Features.Commands.CreateCustomer;
+namespace CustomerManagement.Application.Features.Commands.UpdateCustomer;
 
-public class CreateCustomerCommand : IRequest<CreateCustomerCommandResponse>
+public class UpdateCustomerCommandRequest : IRequest<UpdateCustomerCommandResponse>
 {
+    public Guid CustomerId { get; set; }
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public DateTime DateOfBirth { get; set; }

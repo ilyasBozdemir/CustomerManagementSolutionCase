@@ -1,6 +1,4 @@
-﻿
-
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using CustomerManagement.Domain.Seedwork;
 
 namespace CustomerManagement.Domain.ValueObjects;

@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Commands\DeleteCustomer\" />
-    <Folder Include="Features\Commands\UpdateCustomer\" />
     <Folder Include="Features\Events\" />
     <Folder Include="Features\Mapping\" />
     <Folder Include="Features\Queries\GetCustomer\" />
