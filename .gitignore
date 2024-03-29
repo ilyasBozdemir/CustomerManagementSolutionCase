@@ -1,0 +1,53 @@
+# Bin ve obj klasörleri
+bin/
+obj/
+
+# .vs klasörü (lokal geliştirme yapılandırma dosyaları)
+.vs/
+
+# Resharper
+_ReSharper*/
+
+# NuGet paketlerinin klasörü
+packages/
+
+# Yerel dosya tabanlı veritabanları
+*.db
+
+# Kullanıcı özel dosyaları ve ayarları
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Projeye özgü dosyaları göz ardı et
+*.csproj.user
+*.vbproj.user
+*.vcxproj.user
+*.swp
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# IntelliSense dosyaları
+*.suo
+*.cache
+*.ncb
+*.log
+*.dsk
+*.sdf
+*.opensdf
+
+# Arama sonuçları
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Git for Windows masaüstü için
+[Tt]humbs.db
+*.DS_Store
+
+# Visual Studio Code proje dosyaları
+.vscode/
