@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerManagement.Infrastr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerManagement.Persistence", "src\Infrastructure\CustomerManagement.Persistence\CustomerManagement.Persistence.csproj", "{1D5CE02A-752C-4858-9B76-86A64E7B117F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerManagement.Web", "src\Presentation\CustomerManagement.Web\CustomerManagement.Web.csproj", "{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{1D5CE02A-752C-4858-9B76-86A64E7B117F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D5CE02A-752C-4858-9B76-86A64E7B117F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D5CE02A-752C-4858-9B76-86A64E7B117F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{F82635DA-C621-4758-8720-B832939371A9} = {E771C158-CC43-4164-8C17-691EC992FE4D}
 		{AAC6091C-D150-4122-8AC9-95F2AC341CEE} = {003D95CD-889A-4AF3-BAF3-CBE9B80C5AFF}
 		{1D5CE02A-752C-4858-9B76-86A64E7B117F} = {003D95CD-889A-4AF3-BAF3-CBE9B80C5AFF}
+		{BBD2F4D7-37DE-4BF8-AB54-F1564CE2BB4A} = {44B1470D-2178-4BA1-A623-C5F43EB9EBA4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C217681-DFDC-4009-8D8C-7AC5C11BBFBE}
