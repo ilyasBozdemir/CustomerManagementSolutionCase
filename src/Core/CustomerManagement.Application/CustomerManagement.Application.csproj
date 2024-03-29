@@ -7,15 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Features\Commands\DeleteCustomer\" />
+    <Folder Include="Features\Commands\UpdateCustomer\" />
     <Folder Include="Features\Events\" />
     <Folder Include="Features\Mapping\" />
-    <Folder Include="Features\Commands\" />
-    <Folder Include="Features\Results\" />
-    <Folder Include="Features\Queries\" />
+    <Folder Include="Features\Queries\GetCustomer\" />
+    <Folder Include="Features\Queries\GetCustomers\" />
+    <Folder Include="Features\Queries\SearchCustomers\" />
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerManagement.Domain\CustomerManagement.Domain.csproj" />
   </ItemGroup>
 
 </Project>

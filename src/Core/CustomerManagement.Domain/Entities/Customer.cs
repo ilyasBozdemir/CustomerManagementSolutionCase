@@ -12,7 +12,7 @@ public class Customer: BaseEntity
     public ValueObjects.DateOfBirth DateOfBirth { get; set; }
     public ValueObjects.PhoneNumber PhoneNumber { get; set; }
     public ValueObjects.BankAccountNumber BankAccountNumber { get; set; }
-    private Customer()
+    public Customer()
     {
 
     }
