@@ -11,7 +11,7 @@ public static class ServiceRegistration
     public static async Task AddPersistenceRegistration(this IServiceCollection services)
     {
         services.AddDbContextPool<AppDbContext>(
-                options => options.UseSqlServer("DESKTOP-R4UP5K6\\SQLEXPRESS;Database=AppDb;Integrated Security=True;TrustServerCertificate=True;",
+                options => options.UseSqlServer(@"Server=DESKTOP-R4UP5K6\SQLEXPRESS;Database=AppDb;Integrated Security=True;TrustServerCertificate=True;",
                     sqlOptions =>
                     {
                         sqlOptions.EnableRetryOnFailure(maxRetryCount: 5,

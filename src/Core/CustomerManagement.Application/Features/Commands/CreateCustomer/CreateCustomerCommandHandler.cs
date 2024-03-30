@@ -30,7 +30,6 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
             var customerRepository = _unitOfWork.GetWriteRepository<Customer>();
 
             var addedState = customerRepository.AddAsync(newCustomer);
-
             if (addedState.Result)
             {
              
