@@ -8,7 +8,7 @@ public class CustomerUpdatedEventHandled : INotificationHandler<CustomerUpdatedE
     public async Task Handle(CustomerUpdatedEvent notification, CancellationToken cancellationToken)
     {
         if (notification != null)
-            Console.WriteLine($"Customer Updated: {notification.Customer.FirstName.Value} {notification.Customer.LastName.Value}");
+            Console.WriteLine($"Customer Updated: {notification.Customer.FirstName} {notification.Customer.LastName}");
         await Task.CompletedTask;
     }
 }

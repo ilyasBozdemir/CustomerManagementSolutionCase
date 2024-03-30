@@ -1,4 +1,4 @@
-﻿namespace CustomerManagement.Application.Features.Results;
+﻿namespace CustomerManagement.Domain.Results;
 
 public class ActionResult
 {
@@ -28,5 +28,30 @@ public class ActionResult
         StatusCode = 200;
         Errors = Array.Empty<string>();
         Data = null;
+    }
+}
+public class ActionResult<T>
+{
+    public bool Success { get; set; }
+    public int StatusCode { get; set; }
+    public bool IsError => Errors != null && Errors.Length > 0;
+    public string[] Errors { get; set; }
+
+    public ActionResult(
+        bool success,
+        int statusCode,
+        string[] errors = null
+    )
+    {
+        Success = success;
+        StatusCode = statusCode;
+        Errors = errors ?? Array.Empty<string>();
+    }
+
+    public ActionResult()
+    {
+        Success = true;
+        StatusCode = 200;
+        Errors = Array.Empty<string>();
     }
 }

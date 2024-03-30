@@ -2,6 +2,7 @@
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Domain.Seedwork;
 using CustomerManagement.Application.Features.Events.CustomerEvents;
+using CustomerManagement.Application.Features.DTOs;
 
 namespace CustomerManagement.Application.Features.Commands.UpdateCustomer;
 
@@ -35,12 +36,24 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
             var customerWriteRepository = _unitOfWork.GetWriteRepository<Customer>();
             customerWriteRepository.Update(existingCustomer);
-            await _mediator.Publish(new CustomerUpdatedEvent(existingCustomer.Id));
+            await _mediator.Publish(new CustomerUpdatedEvent(MapToDTO(existingCustomer)));
             return new UpdateCustomerCommandResponse(true, 200, existingCustomer);
         }
         catch (Exception ex)
         {
             return new UpdateCustomerCommandResponse(false, 500, null, new[] { ex.Message });
         }
+    }
+    private CustomerDTO MapToDTO(Customer customer)//automapper could also be used.
+    {
+        return new CustomerDTO
+        {
+            Id = customer.Id,
+            FirstName = customer.FirstName.Value,
+            LastName = customer.LastName.Value,
+            Email = customer.Email.Value,
+            PhoneNumber = customer.PhoneNumber.Value,
+            BankAccountNumber = customer.BankAccountNumber.Value
+        };
     }
 }

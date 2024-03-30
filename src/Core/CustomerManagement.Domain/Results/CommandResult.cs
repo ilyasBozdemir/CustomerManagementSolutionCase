@@ -1,4 +1,4 @@
-﻿namespace CustomerManagement.Application.Features.Results;
+﻿namespace CustomerManagement.Domain.Results;
 
 public class CommandResult : ActionResult
 {

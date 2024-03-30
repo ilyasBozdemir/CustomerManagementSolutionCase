@@ -1,5 +1,5 @@
-﻿using CustomerManagement.Application.Features.Results;
-using CustomerManagement.Domain.Entities;
+﻿using CustomerManagement.Domain.Entities;
+using CustomerManagement.Domain.Results;
 
 namespace CustomerManagement.Application.Features.Commands.UpdateCustomer;
 

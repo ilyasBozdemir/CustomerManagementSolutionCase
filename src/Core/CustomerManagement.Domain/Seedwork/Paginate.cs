@@ -1,4 +1,4 @@
-﻿namespace CustomerManagement.Application.Features.Wrappers.Paging;
+﻿namespace CustomerManagement.Domain.Seedwork;
 
 public class Paginate<T>
 {

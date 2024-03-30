@@ -1,8 +1,6 @@
-﻿using MediatR;
+﻿namespace CustomerManagement.Application.Features.DTOs;
 
-namespace CustomerManagement.Application.Features.Commands.CreateCustomer;
-
-public class CreateCustomerCommandRequest : IRequest<CreateCustomerCommandResponse>
+public class CreateCustomerDTO
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }

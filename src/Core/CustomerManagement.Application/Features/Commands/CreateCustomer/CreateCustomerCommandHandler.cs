@@ -3,7 +3,7 @@ using CustomerManagement.Domain.Seedwork;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Application.Features.Events.CustomerEvents;
 namespace CustomerManagement.Application.Features.Commands.CreateCustomer;
-public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
+public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommandRequest, CreateCustomerCommandResponse>
 {
     private readonly IUnitOfWork  _unitOfWork;
     private readonly IMediator _mediator;
@@ -12,7 +12,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
         _unitOfWork = unitOfWork;
         _mediator = mediator;
     }
-    public async Task<CreateCustomerCommandResponse> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
+    public async Task<CreateCustomerCommandResponse> Handle(CreateCustomerCommandRequest request, CancellationToken cancellationToken)
     {
         try
         {
