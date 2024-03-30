@@ -2,6 +2,7 @@
 using CustomerManagement.Domain.Seedwork;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Application.Features.Events.CustomerEvents;
+using CustomerManagement.Application.Features.DTOs;
 namespace CustomerManagement.Application.Features.Commands.CreateCustomer;
 public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommandRequest, CreateCustomerCommandResponse>
 {
@@ -33,7 +34,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
             if (addedState.Result)
             {
              
-                await _mediator.Publish(new CustomerCreatedEvent(newCustomer));
+                await _mediator.Publish(new CustomerCreatedEvent(MapToDTO(newCustomer)));
 
                 return new CreateCustomerCommandResponse
                 {
@@ -42,6 +43,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
                     Data = newCustomer,
                     Errors = Array.Empty<string>()
                 };
+              
             }
             else
                 return new CreateCustomerCommandResponse
@@ -60,6 +62,19 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
                 Errors = new[] { ex.Message }
             };
         }
+    }
+
+    private CustomerDTO MapToDTO(Customer customer)//automapper could also be used.
+    {
+        return new CustomerDTO
+        {
+            Id = customer.Id,
+            FirstName = customer.FirstName.Value,
+            LastName = customer.LastName.Value,
+            Email = customer.Email.Value,
+            PhoneNumber = customer.PhoneNumber.Value,
+            BankAccountNumber = customer.BankAccountNumber.Value
+        };
     }
 }
 

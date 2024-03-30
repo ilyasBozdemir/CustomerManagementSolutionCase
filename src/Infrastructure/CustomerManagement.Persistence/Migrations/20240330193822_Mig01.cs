@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CustomerManagement.Persistence.Migrations
 {
     /// <inheritdoc />
-    public partial class Mig001 : Migration
+    public partial class Mig01 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,7 +20,6 @@ namespace CustomerManagement.Persistence.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    FirstName_Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Email_Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PhoneNumber_Value = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BankAccountNumber_Value = table.Column<string>(type: "nvarchar(max)", nullable: false)

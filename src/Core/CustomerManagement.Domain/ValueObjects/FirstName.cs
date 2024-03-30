@@ -5,7 +5,6 @@ namespace CustomerManagement.Domain.ValueObjects;
 
 public class FirstName : ValueObject
 {
-    public Guid Id { get; set; }
     public string Value { get; }
 
     public FirstName() { }

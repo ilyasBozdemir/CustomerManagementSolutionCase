@@ -7,7 +7,7 @@ public class CustomerCreatedEventHandler : INotificationHandler<CustomerCreatedE
     public async Task Handle(CustomerCreatedEvent notification, CancellationToken cancellationToken)
     {
         if (notification != null)
-            Console.WriteLine($"New customer created: {notification.Customer.FirstName.Value} {notification.Customer.LastName.Value}");
+            Console.WriteLine($"New customer created: {notification.Customer.FirstName} {notification.Customer.LastName}");
         await Task.CompletedTask;
     }
 }

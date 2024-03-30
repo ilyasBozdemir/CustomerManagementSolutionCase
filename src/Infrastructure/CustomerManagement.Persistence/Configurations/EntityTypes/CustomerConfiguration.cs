@@ -13,13 +13,23 @@ public class CustomerConfiguration : IEntityTypeConfiguration<Customer>
         builder.HasKey(ca => ca.Id);
 
 
-        builder.OwnsOne(own => own.FirstName);
-        builder.OwnsOne(own => own.LastName);
-        builder.OwnsOne(own => own.Email);
-        builder.OwnsOne(own => own.DateOfBirth);
-        builder.OwnsOne(own => own.PhoneNumber);
-        builder.OwnsOne(own => own.BankAccountNumber);
-
+        builder.OwnsOne(own => own.FirstName)
+            .Property(x => x.Value) 
+            .HasColumnName("FirstName"); 
+        builder.OwnsOne(own => own.LastName)
+            .Property(x => x.Value)
+            .HasColumnName("LastName");
+        builder.OwnsOne(own => own.Email)
+            .Property(x => x.Value)
+            .HasColumnName("Email");
+        builder.OwnsOne(own => own.DateOfBirth)
+            .Property(x => x.Value)
+            .HasColumnName("DateOfBirth");
+        builder.OwnsOne(own => own.PhoneNumber)
+            .Property(x => x.Value)
+            .HasColumnName("PhoneNumber");
+        builder.OwnsOne(own => own.BankAccountNumber)
+            .Property(x => x.Value)
+            .HasColumnName("BankAccountNumber");
     }
 }
-

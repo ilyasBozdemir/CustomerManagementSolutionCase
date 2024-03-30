@@ -3,7 +3,10 @@ using CustomerManagement.Domain.ValueObjects;
 
 namespace CustomerManagement.Domain.Entities;
 
-public class Customer: BaseEntity
+using System;
+
+
+public class Customer : BaseEntity
 {
     public Guid Id { get; set; }
     public ValueObjects.FirstName FirstName { get; set; }

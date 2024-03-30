@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CustomerManagement.Persistence.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240329172821_Mig001")]
-    partial class Mig001
+    [Migration("20240330193822_Mig01")]
+    partial class Mig01
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,9 +88,6 @@ namespace CustomerManagement.Persistence.Migrations
                     b.OwnsOne("CustomerManagement.Domain.ValueObjects.FirstName", "FirstName", b1 =>
                         {
                             b1.Property<Guid>("CustomerId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<Guid>("Id")
                                 .HasColumnType("uniqueidentifier");
 
                             b1.HasKey("CustomerId");
