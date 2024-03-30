@@ -1,4 +1,5 @@
 ﻿using CustomerManagement.Application.Features.DTOs;
+using CustomerManagement.Application.Features.Queries.GetCustomer;
 using CustomerManagement.Application.Features.Utils.Filters;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Domain.Seedwork;
@@ -67,10 +68,14 @@ public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQueryRequest
             return customerList;
 
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-
-            throw;
+            return new GetCustomersQueryResponse()
+            {
+                Errors = new[] { ex.Message },
+                StatusCode = 500,
+                Success = false
+            };
         }
 
 
