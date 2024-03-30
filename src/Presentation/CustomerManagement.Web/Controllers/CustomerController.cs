@@ -3,6 +3,7 @@ using CustomerManagement.Application.Features.Commands.DeleteCustomer;
 using CustomerManagement.Application.Features.Commands.UpdateCustomer;
 using CustomerManagement.Application.Features.DTOs;
 using CustomerManagement.Application.Features.Queries.GetCustomer;
+using CustomerManagement.Application.Features.Queries.GetCustomers;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,19 +17,32 @@ public class CustomerController : Controller
         _mediator = mediator;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        IEnumerable<CustomerDTO> model = new List<CustomerDTO>();
-
-        return View(model);
+        GetCustomersQueryRequest command = new GetCustomersQueryRequest();
+        var result = await _mediator.Send(command);
+        if (ModelState.IsValid)
+        {
+            if (result.Success)
+            {
+                return View(result);
+            }
+            else
+            {
+                string errorMessage = string.Join(", ", result.Errors);
+                ModelState.AddModelError("", errorMessage);
+            }
+        }
+        return View(result);
     }
+
 
 
     [HttpGet]
     public IActionResult Create()
     {
-        var model = new CreateCustomerCommandRequest();
-        return View(model);
+        
+        return View();
     }
 
 
