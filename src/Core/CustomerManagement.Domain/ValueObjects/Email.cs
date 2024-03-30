@@ -23,7 +23,7 @@ public class Email : ValueObject
     {
         Value = @value;   
     }
-    private bool IsValidEmail(string email) => Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+    private bool IsValidEmail(string email) => Regex.IsMatch(email, @"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b");
     protected override IEnumerable<object> GetEqualityComponents()
     {
         yield return Value;

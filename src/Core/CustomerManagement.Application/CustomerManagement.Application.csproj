@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Events\" />
-    <Folder Include="Features\Mapping\" />
     <Folder Include="Features\Queries\GetCustomer\" />
     <Folder Include="Features\Queries\GetCustomers\" />
     <Folder Include="Features\Queries\SearchCustomers\" />

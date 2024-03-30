@@ -1,16 +1,18 @@
 ﻿using MediatR;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Domain.Seedwork;
+using CustomerManagement.Application.Features.Events.CustomerEvents;
 
 namespace CustomerManagement.Application.Features.Commands.UpdateCustomer;
 
 public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerCommandRequest, UpdateCustomerCommandResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
-
-    public UpdateCustomerCommandHandler(IUnitOfWork unitOfWork)
+    private readonly IMediator _mediator;
+    public UpdateCustomerCommandHandler(IUnitOfWork unitOfWork, IMediator mediator)
     {
         _unitOfWork = unitOfWork;
+        _mediator = mediator;
     }
 
     public async Task<UpdateCustomerCommandResponse> Handle(UpdateCustomerCommandRequest request, CancellationToken cancellationToken)
@@ -33,7 +35,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
 
             var customerWriteRepository = _unitOfWork.GetWriteRepository<Customer>();
             customerWriteRepository.Update(existingCustomer);
-
+            await _mediator.Publish(new CustomerUpdatedEvent(existingCustomer.Id));
             return new UpdateCustomerCommandResponse(true, 200, existingCustomer);
         }
         catch (Exception ex)

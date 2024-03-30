@@ -1,19 +1,22 @@
 ﻿using MediatR;
 using CustomerManagement.Domain.Seedwork;
 using CustomerManagement.Domain.Entities;
+using CustomerManagement.Application.Features.Events.CustomerEvents;
 namespace CustomerManagement.Application.Features.Commands.CreateCustomer;
 public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerCommand, CreateCustomerCommandResponse>
 {
     private readonly IUnitOfWork  _unitOfWork;
-    public CreateCustomerCommandHandler(IUnitOfWork unitOfWork)
+    private readonly IMediator _mediator;
+    public CreateCustomerCommandHandler(IUnitOfWork unitOfWork, IMediator mediator)
     {
         _unitOfWork = unitOfWork;
+        _mediator = mediator;
     }
     public async Task<CreateCustomerCommandResponse> Handle(CreateCustomerCommand request, CancellationToken cancellationToken)
     {
         try
         {
-            var customer = new Customer
+            var newCustomer = new Customer
             {
                 FirstName = new Domain.ValueObjects.FirstName(request.FirstName),
                 LastName = new Domain.ValueObjects.LastName(request.LastName),
@@ -25,16 +28,21 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
 
             var customerRepository = _unitOfWork.GetWriteRepository<Customer>();
 
-            var addedState = customerRepository.AddAsync(customer);
+            var addedState = customerRepository.AddAsync(newCustomer);
 
             if (addedState.Result)
+            {
+             
+                await _mediator.Publish(new CustomerCreatedEvent(newCustomer));
+
                 return new CreateCustomerCommandResponse
                 {
                     Success = addedState.Result,
                     StatusCode = 200,
-                    Data = customer,
+                    Data = newCustomer,
                     Errors = Array.Empty<string>()
                 };
+            }
             else
                 return new CreateCustomerCommandResponse
                 {

@@ -1,16 +1,18 @@
 ﻿using MediatR;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Domain.Seedwork;
+using CustomerManagement.Application.Features.Events.CustomerEvents;
 
 namespace CustomerManagement.Application.Features.Commands.DeleteCustomer;
 
 public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerCommandRequest, DeleteCustomerCommandResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
-
-    public DeleteCustomerCommandHandler(IUnitOfWork unitOfWork)
+    private readonly IMediator _mediator;
+    public DeleteCustomerCommandHandler(IUnitOfWork unitOfWork, IMediator mediator)
     {
         _unitOfWork = unitOfWork;
+        _mediator = mediator;
     }
 
     public async Task<DeleteCustomerCommandResponse> Handle(DeleteCustomerCommandRequest request, CancellationToken cancellationToken)
@@ -27,8 +29,8 @@ public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerComman
 
             await customerWriteRepository.RemoveAsync(existingCustomer.Id.ToString());
 
-
-            return new DeleteCustomerCommandResponse(true, 200, existingCustomer); // Müşteri başarıyla silindi
+            await _mediator.Publish(new CustomerDeletedEvent(existingCustomer.Id));
+            return new DeleteCustomerCommandResponse(true, 200, existingCustomer);
            
         }
         catch (Exception ex)
