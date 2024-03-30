@@ -1,14 +1,19 @@
+using CustomerManagement.Persistence;
 using CustomerManagement.Application;
+using CustomerManagement.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-
 #region Katmanlarýn servis kayýtlarý
 
- builder.Services.AddApplicationRegistration();
+builder.Services.AddApplicationRegistration();
+await builder.Services.AddPersistenceRegistration();
+builder.Services.AddInfrastructureServices();
 
 #endregion
+
+
+
 
 builder.Services.AddControllersWithViews();
 
