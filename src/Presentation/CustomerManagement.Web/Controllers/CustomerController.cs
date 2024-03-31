@@ -106,9 +106,8 @@ public class CustomerController : Controller
         return View(command);
     }
 
-    //[HttpDelete("{id}")]
-    [HttpPost("Delete/{id}")]
-    public async Task<IActionResult> Delete(Guid id)
+    [HttpPost]
+    public async Task<IActionResult> Delete([FromRoute] Guid id)
     {
         var result = await _mediator.Send(new DeleteCustomerCommandRequest() { CustomerId = id });
         if (result.Success)
