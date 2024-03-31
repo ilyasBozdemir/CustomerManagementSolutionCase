@@ -55,7 +55,8 @@ public class CustomerManagementSteps
 
     [When(@"the user confirms the creation of the new customer")]
     public void WhenTheUserConfirmsTheCreationOfTheNewCustomer()
-   
+    { 
+
     }
 
     [Then(@"the user sees that the new customer has been successfully created")]
