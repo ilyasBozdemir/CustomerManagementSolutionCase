@@ -90,7 +90,8 @@ public class GetCustomersQueryHandler : IRequestHandler<GetCustomersQueryRequest
             LastName = customer.LastName.Value,
             Email = customer.Email.Value,
             PhoneNumber = customer.PhoneNumber.Value,
-            BankAccountNumber = customer.BankAccountNumber.Value
+            BankAccountNumber = customer.BankAccountNumber.Value,
+            DateOfBirth = customer.DateOfBirth.Value,
         };
     }
 }

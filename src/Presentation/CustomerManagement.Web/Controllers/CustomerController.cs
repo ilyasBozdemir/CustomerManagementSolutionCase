@@ -1,23 +1,22 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using CustomerManagement.Application.Features.Commands.CreateCustomer;
+﻿using CustomerManagement.Application.Features.Commands.CreateCustomer;
 using CustomerManagement.Application.Features.Commands.DeleteCustomer;
 using CustomerManagement.Application.Features.Commands.UpdateCustomer;
+using CustomerManagement.Application.Features.DTOs;
 using CustomerManagement.Application.Features.Queries.GetCustomer;
 using CustomerManagement.Application.Features.Queries.GetCustomers;
-using CustomerManagement.Application.Features.DTOs;
-
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CustomerManagement.Web.Controllers;
 
 public class CustomerController : Controller
 {
     private readonly IMediator _mediator;
+
     public CustomerController(IMediator mediator)
     {
         _mediator = mediator;
     }
-
 
     [HttpGet]
     public async Task<IActionResult> Index()
@@ -38,12 +37,8 @@ public class CustomerController : Controller
         return View(result);
     }
 
-
-
     [HttpGet]
     public IActionResult Create() => View();
-
-
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -72,13 +67,13 @@ public class CustomerController : Controller
 
         if (customer == null)
             return NotFound();
-        
+
         return View(customer.Data);
     }
 
     [HttpPost("Edit/{id}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit([FromRoute] Guid id, [FromBody] CustomerDTO model)
+    public async Task<IActionResult> Edit([FromRoute] Guid id, [FromForm] CustomerDTO model)
     {
         UpdateCustomerCommandRequest command = new UpdateCustomerCommandRequest()
         {
@@ -111,7 +106,6 @@ public class CustomerController : Controller
         return View(command);
     }
 
-
     //[HttpDelete("{id}")]
     [HttpPost("Delete/{id}")]
     public async Task<IActionResult> Delete(Guid id)
@@ -126,7 +120,6 @@ public class CustomerController : Controller
             string errorMessage = string.Join(", ", result.Errors);
             return RedirectToAction(nameof(Index), new { errorMessage = errorMessage });
         }
-
     }
 
     [HttpGet]
@@ -140,5 +133,4 @@ public class CustomerController : Controller
 
         return View(result.Data);
     }
-
 }

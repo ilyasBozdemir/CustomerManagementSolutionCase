@@ -5,9 +5,11 @@ using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace CustomerManagement.Persistence.Repositories;
 
-public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
+public class WriteRepository<T> : IWriteRepository<T>
+    where T : BaseEntity
 {
-    readonly private AppDbContext _context;
+    private readonly AppDbContext _context;
+
     public WriteRepository(AppDbContext context)
     {
         _context = context;
@@ -15,12 +17,11 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
 
     public DbSet<T> Table => _context.Set<T>();
 
-
     public async Task<bool> AddAsync(T model)
     {
         await Table.AddAsync(model);
         await _context.SaveChangesAsync();
-        return true; 
+        return true;
     }
 
     public async Task<bool> AddRangeAsync(List<T> datas)
@@ -28,22 +29,26 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
         await Table.AddRangeAsync(datas);
         return true;
     }
-    public bool Remove(T model)
+
+    public async Task<bool> Remove(T model)
     {
         if (model is ISoftDeletable softDeletable)
         {
             softDeletable.IsDeleted = true;
             softDeletable.DeletedDate = DateTime.UtcNow;
             EntityEntry<T> entityEntry = Table.Update(model);
+            await _context.SaveChangesAsync();
             return entityEntry.State == EntityState.Modified;
         }
         else
         {
             EntityEntry<T> entityEntry = Table.Remove(model);
+            await _context.SaveChangesAsync();
             return entityEntry.State == EntityState.Deleted;
         }
     }
-    public bool RemoveRange(List<T> datas)
+
+    public async Task<bool> RemoveRange(List<T> datas)
     {
         foreach (var model in datas)
         {
@@ -52,28 +57,32 @@ public class WriteRepository<T> : IWriteRepository<T> where T : BaseEntity
                 softDeletable.IsDeleted = true;
                 softDeletable.DeletedDate = DateTime.UtcNow;
                 Table.Update(model);
+                await _context.SaveChangesAsync();
             }
             else
             {
                 Table.Remove(model);
+                await _context.SaveChangesAsync();
             }
         }
 
         return true;
-
     }
 
     public async Task<bool> RemoveAsync(string id)
     {
         T model = await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
-
-        return Remove(model);
+        await Remove(model);
+        await _context.SaveChangesAsync();
+        return true;
     }
-    public bool Update(T model)
+
+    public async Task<bool> Update(T model)
     {
         EntityEntry entityEntry = Table.Update(model);
+        await _context.SaveChangesAsync();
         return entityEntry.State == EntityState.Modified;
     }
-    public async Task<int> SaveAsync()
-        => await _context.SaveChangesAsync();
+
+    public async Task<int> SaveAsync() => await _context.SaveChangesAsync();
 }

@@ -28,7 +28,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
             
 
             existingCustomer.FirstName = new Domain.ValueObjects.FirstName(request.FirstName);
-            existingCustomer.LastName = new Domain.ValueObjects.LastName(request.FirstName);
+            existingCustomer.LastName = new Domain.ValueObjects.LastName(request.LastName);
             existingCustomer.DateOfBirth = new Domain.ValueObjects.DateOfBirth(request.DateOfBirth);
             existingCustomer.PhoneNumber = new Domain.ValueObjects.PhoneNumber(request.PhoneNumber);
             existingCustomer.Email = new Domain.ValueObjects.Email(request.Email);
@@ -53,7 +53,8 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
             LastName = customer.LastName.Value,
             Email = customer.Email.Value,
             PhoneNumber = customer.PhoneNumber.Value,
-            BankAccountNumber = customer.BankAccountNumber.Value
+            BankAccountNumber = customer.BankAccountNumber.Value,
+            DateOfBirth = customer.DateOfBirth.Value,
         };
     }
 }
