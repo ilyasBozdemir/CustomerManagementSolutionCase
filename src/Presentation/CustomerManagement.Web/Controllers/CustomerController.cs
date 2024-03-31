@@ -1,11 +1,12 @@
-﻿using CustomerManagement.Application.Features.Commands.CreateCustomer;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using CustomerManagement.Application.Features.Commands.CreateCustomer;
 using CustomerManagement.Application.Features.Commands.DeleteCustomer;
 using CustomerManagement.Application.Features.Commands.UpdateCustomer;
-using CustomerManagement.Application.Features.DTOs;
 using CustomerManagement.Application.Features.Queries.GetCustomer;
 using CustomerManagement.Application.Features.Queries.GetCustomers;
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
+using CustomerManagement.Application.Features.DTOs;
+
 
 namespace CustomerManagement.Web.Controllers;
 
@@ -17,10 +18,11 @@ public class CustomerController : Controller
         _mediator = mediator;
     }
 
+
+    [HttpGet]
     public async Task<IActionResult> Index()
     {
-        GetCustomersQueryRequest command = new GetCustomersQueryRequest();
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(new GetCustomersQueryRequest());
         if (ModelState.IsValid)
         {
             if (result.Success)
@@ -39,11 +41,8 @@ public class CustomerController : Controller
 
 
     [HttpGet]
-    public IActionResult Create()
-    {
-        
-        return View();
-    }
+    public IActionResult Create() => View();
+
 
 
     [HttpPost]
@@ -66,20 +65,31 @@ public class CustomerController : Controller
         return View(command);
     }
 
-    public async Task<IActionResult> Edit(Guid id)
+    [HttpGet("Edit/{id}")]
+    public async Task<IActionResult> Edit([FromRoute] Guid id)
     {
         var customer = await _mediator.Send(new GetCustomerByIdQueryRequest() { CustomerId = id });
 
         if (customer == null)
-        {
             return NotFound();
-        }
-        return View(customer);
+        
+        return View(customer.Data);
     }
-    [HttpPost]
+
+    [HttpPost("Edit/{id}")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(Guid id, UpdateCustomerCommandRequest command)
+    public async Task<IActionResult> Edit([FromRoute] Guid id, [FromBody] CustomerDTO model)
     {
+        UpdateCustomerCommandRequest command = new UpdateCustomerCommandRequest()
+        {
+            CustomerId = model.Id,
+            BankAccountNumber = model.BankAccountNumber,
+            DateOfBirth = model.DateOfBirth,
+            Email = model.Email,
+            FirstName = model.FirstName,
+            LastName = model.LastName,
+            PhoneNumber = model.PhoneNumber,
+        };
         if (id != command.CustomerId)
         {
             return NotFound();
@@ -102,12 +112,11 @@ public class CustomerController : Controller
     }
 
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
+    //[HttpDelete("{id}")]
+    [HttpPost("Delete/{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
-        var command = new DeleteCustomerCommandRequest() { CustomerId = id };
-        var result = await _mediator.Send(command);
+        var result = await _mediator.Send(new DeleteCustomerCommandRequest() { CustomerId = id });
         if (result.Success)
         {
             return RedirectToAction(nameof(Index));
@@ -118,6 +127,18 @@ public class CustomerController : Controller
             return RedirectToAction(nameof(Index), new { errorMessage = errorMessage });
         }
 
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Details([FromRoute] Guid id)
+    {
+        var result = await _mediator.Send(new GetCustomerByIdQueryRequest() { CustomerId = id });
+        if (!result.Success)
+        {
+            return NotFound();
+        }
+
+        return View(result.Data);
     }
 
 }

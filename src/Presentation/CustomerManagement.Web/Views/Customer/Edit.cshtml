@@ -1,10 +1,12 @@
-﻿@using CustomerManagement.Application.Features.Commands.UpdateCustomer
-@model UpdateCustomerCommandRequest
+﻿@using CustomerManagement.Application.Features.DTOs
+
+@model CustomerDTO
 
 <h2>Edit Customer</h2>
 
-<form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="CustomerId" />
+<form asp-action="Edit" method="post" enctype="application/x-www-form-urlencoded">
+    @Html.AntiForgeryToken()
+    <input type="hidden" asp-for="Id" />
     <div class="form-group">
         <label asp-for="FirstName"></label>
         <input asp-for="FirstName" class="form-control" />
