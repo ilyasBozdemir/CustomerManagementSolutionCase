@@ -1,5 +1,36 @@
-﻿namespace CustomerManagement.BDD.Tests.PageObjects;
+﻿using CustomerManagement.Application.Features.DTOs;
+using CustomerManagement.BDD.Tests.Components;
+using OpenQA.Selenium;
 
-public class CustomerPage
+namespace CustomerManagement.BDD.Tests.PageObjects;
+
+//I will continue
+
+public class CustomerPage : BasePage
 {
+    private CreateCustomerComponents customerComponents;
+
+
+    public CustomerPage(IWebDriver driver) : base(driver)
+    {
+
+    }
+
+
+    public void AddCustomer(CustomerDTO customer)
+    {
+
+    }
+
+
+    public void DeleteCustomer(string customerId)
+    {
+
+    }
+ 
+
+    public void UpdateCustomer(Guid Id ,CustomerDTO customer)
+    {
+
+    }
 }
