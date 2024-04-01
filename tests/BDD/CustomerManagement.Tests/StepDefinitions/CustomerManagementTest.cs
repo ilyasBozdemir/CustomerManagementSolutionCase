@@ -1,9 +1,10 @@
-﻿using TechTalk.SpecFlow;
+﻿using CustomerManagement.Tests.Concretes;
+using TechTalk.SpecFlow;
 
 namespace CustomerManagement.BDD.Tests.StepDefinitions;
 
 [Binding]
-public class CustomerManagementSteps
+public class CustomerManagementTest: BaseTest
 {
     [Given(@"the user opens the application")]
     public void GivenTheUserOpensTheApplication()

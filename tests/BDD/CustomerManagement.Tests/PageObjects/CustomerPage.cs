@@ -4,7 +4,7 @@ using OpenQA.Selenium;
 
 namespace CustomerManagement.BDD.Tests.PageObjects;
 
-//I will continue
+
 
 public class CustomerPage : BasePage
 {

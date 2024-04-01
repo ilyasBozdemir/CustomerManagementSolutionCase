@@ -9,13 +9,20 @@ public class BasePage
 {
     protected IWebDriver driver;
     protected WebDriverWait wait;
+    protected Actions actions;
+    protected string baseUrl = "https://localhost:7189/";
 
     public BasePage(IWebDriver driver)
     {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        this.actions = new Actions(driver);
     }
 
+    public void NavigateTo(string relativePath)
+    {
+        driver.Navigate().GoToUrl(baseUrl + relativePath);
+    }
     protected IWebElement FindElement(By locator)
     {
         return wait.Until(ExpectedConditions.ElementIsVisible(locator));
