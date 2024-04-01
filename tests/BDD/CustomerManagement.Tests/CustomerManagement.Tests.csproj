@@ -30,11 +30,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\" />
-    <Folder Include="TestRunner\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\..\src\Core\CustomerManagement.Application\CustomerManagement.Application.csproj" />
     <ProjectReference Include="..\..\..\src\Core\CustomerManagement.Domain\CustomerManagement.Domain.csproj" />
   </ItemGroup>

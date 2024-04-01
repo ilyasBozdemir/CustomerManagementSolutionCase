@@ -8,7 +8,7 @@ public static class TestDataGenerator
     {
         return new Customer
         {
-            Id= Guid.NewGuid(),
+            Id = Guid.NewGuid(),
             FirstName = new Domain.ValueObjects.FirstName("John"),
             LastName = new Domain.ValueObjects.LastName("Doe"),
             DateOfBirth = new Domain.ValueObjects.DateOfBirth(new DateTime(1990, 1, 1)),
