@@ -2,109 +2,139 @@
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
+using CustomerManagement.Tests.PageObjects.Pages;
+
 
 namespace CustomerManagement.BDD.Tests.Hooks;
 
-#region DESC
 /*
  
-EN:
+  BeforeScenario and AfterScenario:
  
-* [Before] and [After]:
+  * These attributes are used to perform specific operations before and after each scenario is run.
+   For example, starting and closing WebDriver.
 
-The [Before] attribute is used to mark a scenario step or a specific method before the scenario starts.
-The [After] attribute is used to mark a scenario step or a specific method after the scenario is completed.
-[BeforeTestRun] and [AfterTestRun]:
+  BeforeFeature and AfterFeature:
 
-The [BeforeTestRun] attribute is used to specify the method to run once before running all scenarios.
-The [AfterTestRun] attribute is used to specify the method to be run once after all scenarios have been run.
-[BeforeScenario] and [AfterScenario]:
+ * These attributes are used to perform certain operations before and after each feature is executed.
+ * For example, preparing a test environment when the feature launches.
 
-The [BeforeScenario] attribute is used to mark a particular method before any scenario starts.
-The [AfterScenario] attribute is used to mark a specific method after any scenario is completed.
-[BeforeStep] and [AfterStep]:
+  Before and After:
+ * These attributes are used to perform specific operations before and after each scenario step.
+   However, the BeforeScenario and AfterScenario attributes are preferred instead of using these attributes.
 
-The [BeforeStep] attribute is used to mark a specific method before any scenario step starts.
-The [AfterStep] attribute is used to mark a specific method after any scenario step is completed.
+BeforeTestRun and AfterTestRun:
 
-TR:
+ * These attributes are used to perform certain operations before and after the test run starts.
+   For example, opening the database connection before the test run starts and closing the database connection after the test run is finished.
+  
+BeforeStep and AfterStep:
 
-[Before] ve [After]:
+* These attributes are used to perform specific operations before and after each scenario step.
+ It is used in step-by-step tests, where certain actions must be performed before and after each step.
 
-[Before] özniteliği, bir senaryo adımı veya senaryo başlamadan önce belirli bir metodu işaretlemek için kullanılır.
-[After] özniteliği ise bir senaryo adımı veya senaryo tamamlandıktan sonra belirli bir metodu işaretlemek için kullanılır.
-[BeforeTestRun] ve [AfterTestRun]:
 
-[BeforeTestRun] özniteliği, tüm senaryoların çalıştırılmasından önce bir kez çalıştırılacak metodu belirtmek için kullanılır.
-[AfterTestRun] özniteliği ise tüm senaryoların çalıştırılmasından sonra bir kez çalıştırılacak metodu belirtmek için kullanılır.
-[BeforeScenario] ve [AfterScenario]:
 
-[BeforeScenario] özniteliği, herhangi bir senaryo başlamadan önce belirli bir metodu işaretlemek için kullanılır.
-[AfterScenario] özniteliği ise herhangi bir senaryo tamamlandıktan sonra belirli bir metodu işaretlemek için kullanılır.
-[BeforeStep] ve [AfterStep]:
+BeforeTestRun: Used to specify the operations performed before the test run begins.
 
-[BeforeStep] özniteliği, herhangi bir senaryo adımı başlamadan önce belirli bir metodu işaretlemek için kullanılır.
-[AfterStep] özniteliği ise herhangi bir senaryo adımı tamamlandıktan sonra belirli bir metodu işaretlemek için kullanılır.
+BeforeFeature: Used to specify the operations performed before each feature is run.
 
+BeforeScenario: Used to specify the actions taken before each scenario starts.
+
+BeforeStep: Used to specify the operations performed before each scenario step.
+
+Before: Used to indicate the operations performed before each scenario step. However, the BeforeStep attribute is preferred.
+
+AfterStep: Used to specify the actions performed after each scenario step.
+
+After: Used to indicate the actions taken after each scenario step. However, the AfterStep attribute is preferred.
+
+AfterScenario: Used to indicate the actions taken after each scenario is finished.
+
+AfterFeature: It is used to indicate the operations performed after each feature is completed.
+
+AfterTestRun: Used to specify operations performed after the test run is finished.
 
  */
 
-#endregion
 
-[Binding]
-public class Hooks
-{
+//[Binding]
+//public class Hooks
+//{
+//    private readonly ScenarioContext _scenarioContext;
+//    private readonly FeatureContext _featureContext;
+//    private readonly ScenarioStepContext _scenarioStepContext;
 
-    private IWebDriver _driver;
-    private WebDriverWait _wait;
-
-    [BeforeScenario]
-    public void BeforeScenario()
-    {
-        WebDriverFactory.InitializeWebDriver();
-        _driver = WebDriverFactory.GetDriver();
-    }
-
-    [AfterScenario]
-    public void AfterScenario()
-    {
-        WebDriverFactory.CloseWebDriver();
-    }
+//    private IWebDriver _driver;
 
 
-    [Before]
-    public void BeforeMethod()
-    {
-       
-    }
+//    public Hooks(ScenarioContext scenarioContext, FeatureContext featureContext, ScenarioStepContext scenarioStepContext)
+//    {
+//        _scenarioContext = scenarioContext;
+//        _featureContext = featureContext;
+//        _scenarioStepContext = scenarioStepContext;
+//    }
 
-    [After]
-    public void AfterMethod()
-    {
-       
-    }
+//    [BeforeScenario]
+//    public void BeforeScenario()
+//    {
+//        Console.WriteLine("Before scenario: {Scenario}", _scenarioContext.ScenarioInfo.Title);
+//        WebDriverFactory.InitializeWebDriver();
+//        _driver = WebDriverFactory.GetDriver();
+//    }
 
-    [BeforeTestRun]
-    public void BeforeTestRun()
-    {
+//    [AfterScenario]
+//    public void AfterScenario()
+//    {
+//        Console.WriteLine("After scenario: {Scenario}", _scenarioContext.ScenarioInfo.Title);
+//        WebDriverFactory.CloseWebDriver();
+//    }
 
-    }
+//    [BeforeFeature]
+//    public static void BeforeFeature()
+//    {
+//        Console.WriteLine("Before feature: {Feature}");
+//    }
 
-    [AfterTestRun]
-    public void AfterTestRun()
-    {
-       
-    }
+//    [AfterFeature]
+//    public static void AfterFeature()
+//    {
+//        Console.WriteLine("After feature: {Feature}");
+//    }
 
-    [BeforeStep]
-    public void BeforeStep()
-    {
-       
-    }
+//    [Before]
+//    public void BeforeMethod()
+//    {
+//        Console.WriteLine("Before : {Before}", _scenarioContext.ScenarioInfo.Title);
+//    }
 
-    [AfterStep]
-    public void AfterStep()
-    {
-       
-    }
-}
+//    [After]
+//    public void AfterMethod()
+//    {
+//        Console.WriteLine("After : {After}", _scenarioContext.ScenarioInfo.Title);
+//    }
+
+//    [BeforeTestRun]
+//    public static void BeforeTestRun()
+//    {
+      
+//    }
+
+//    [AfterTestRun]
+//    public static void AfterTestRun()
+//    {
+      
+//    }
+
+//    [BeforeStep]
+//    public void BeforeStep()
+//    {
+//        Console.WriteLine("Before Step : {Step}", _scenarioStepContext.StepInfo);
+//    }
+
+//    [AfterStep]
+//    public void AfterStep()
+//    {
+//        Console.WriteLine("After Step : {Step}", _scenarioStepContext.StepInfo);
+//    }
+//}

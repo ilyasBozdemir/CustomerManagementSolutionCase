@@ -10,6 +10,6 @@ public class CustomerCreatePage : BasePage
     private CustomerCreatePageComponents _pageComponents;
     public CustomerCreatePage(IWebDriver driver) : base(driver)
     {
-
+        _pageComponents = new CustomerCreatePageComponents(driver);
     }
 }

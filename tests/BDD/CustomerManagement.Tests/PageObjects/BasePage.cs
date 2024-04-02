@@ -5,12 +5,12 @@ using SeleniumExtras.WaitHelpers;
 
 namespace CustomerManagement.BDD.Tests.PageObjects;
 
-public class BasePage
+public abstract class BasePage
 {
     protected IWebDriver driver;
     protected WebDriverWait wait;
     protected Actions actions;
- 
+
 
     public BasePage(IWebDriver driver)
     {
@@ -91,8 +91,9 @@ public class BasePage
         driver.Manage().Timeouts().PageLoad = timeout;
     }
 
-    protected void SetImplicitWait(TimeSpan timeout)
+    public void SetImplicitWait(TimeSpan timeout)
     {
         driver.Manage().Timeouts().ImplicitWait = timeout;
     }
+
 }

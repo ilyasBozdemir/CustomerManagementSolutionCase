@@ -7,7 +7,7 @@ namespace CustomerManagement.BDD.Tests.Utils;
 public static class WebDriverFactory
 {
     private static IWebDriver _driver;
-    private static string baseUrl = "https://localhost:7189/";
+   
     public static void InitializeWebDriver()
     {
         ChromeOptions options = new ChromeOptions();
@@ -18,13 +18,11 @@ public static class WebDriverFactory
         options.AddArgument("--headless");
         _driver = new ChromeDriver(options);
         _driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), options);
-        _driver.Navigate().GoToUrl(baseUrl);
-
     }
 
     public static void NavigateTo(string relativePath)
     {
-        _driver.Navigate().GoToUrl(baseUrl + relativePath);
+        _driver.Navigate().GoToUrl(relativePath);
     }
 
     public static void CloseWebDriver()

@@ -15,7 +15,7 @@ public class CustomerCreatePageComponents: BasePageComponents
 
     public CustomerCreatePageComponents(IWebDriver driver) : base(driver)
     {
-        _driver = WebDriverFactory.GetDriver();
+        _driver = driver;
         FirstNameInput = _driver.FindElement(By.XPath("//*[@id=\"FirstName\"]"));
         LastNameInput = _driver.FindElement(By.XPath("//*[@id=\"LastName\"]"));
         DateOfBirthInput = _driver.FindElement(By.XPath("//*[@id=\"DateOfBirth\"]"));

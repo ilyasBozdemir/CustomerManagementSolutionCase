@@ -102,7 +102,7 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
                 this.ScenarioStart();
 #line 6
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Create\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                        "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
     testRunner.When("the user chooses to create a new customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -131,24 +131,6 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
 #line 15
     testRunner.Then("the user sees that the new customer has been successfully created.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Rule",
-                            "Result"});
-                table1.AddRow(new string[] {
-                            "Phone number must be a valid mobile number (LibPhoneNumber)",
-                            "Valid"});
-                table1.AddRow(new string[] {
-                            "Email must be unique in the database",
-                            "Valid"});
-                table1.AddRow(new string[] {
-                            "Bank account number must be a valid number",
-                            "Valid"});
-                table1.AddRow(new string[] {
-                            "Customer must be unique by Firstname, Lastname, and DateOfBirth",
-                            "Valid"});
-#line 16
-    testRunner.And("the system validates the following rules:", ((string)(null)), table1, "And ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
@@ -161,7 +143,7 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Customer Listing", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 23
+#line 17
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -171,14 +153,14 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             else
             {
                 this.ScenarioStart();
-#line 24
+#line 18
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
                         "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 25
+#line 19
     testRunner.When("The user chooses to view the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 26
+#line 20
     testRunner.Then("the user sees the current customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -193,8 +175,8 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Viewing Customer Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
-   this.ScenarioInitialize(scenarioInfo);
+#line 22
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -203,17 +185,17 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             else
             {
                 this.ScenarioStart();
-#line 29
+#line 23
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
                         "tomer/Details/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 30
+#line 24
     testRunner.When("The user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 31
+#line 25
     testRunner.And("the user chooses to view the details of the customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 32
+#line 26
     testRunner.Then("the user sees the details of the selected customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -228,8 +210,8 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Updating Customer Information", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
-   this.ScenarioInitialize(scenarioInfo);
+#line 28
+  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
             {
@@ -238,45 +220,27 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             else
             {
                 this.ScenarioStart();
-#line 35
+#line 29
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Edi" +
                         "t/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 36
+#line 30
     testRunner.When("The user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 37
+#line 31
     testRunner.And("the user chooses to update customer information.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 38
+#line 32
     testRunner.And("The user updates the customer\'s name to \'Jane\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 39
+#line 33
     testRunner.And("The user updates the customer\'s last name to \'Smith\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 40
+#line 34
     testRunner.And("The user confirms the update process.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 41
+#line 35
     testRunner.Then("the user sees updated customer information.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Rule",
-                            "Result"});
-                table2.AddRow(new string[] {
-                            "Phone number must be a valid mobile number (LibPhoneNumber)",
-                            "Valid"});
-                table2.AddRow(new string[] {
-                            "Email must be unique in the database",
-                            "Valid"});
-                table2.AddRow(new string[] {
-                            "Bank account number must be a valid number",
-                            "Valid"});
-                table2.AddRow(new string[] {
-                            "Customer must be unique by Firstname, Lastname, and DateOfBirth",
-                            "Valid"});
-#line 42
-    testRunner.And("the system validates the following rules:", ((string)(null)), table2, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -290,7 +254,7 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Customer Deletion", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 49
+#line 37
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -300,20 +264,20 @@ namespace CustomerManagement.Tests.Features.CustomerManagements
             else
             {
                 this.ScenarioStart();
-#line 50
+#line 38
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
                         "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 51
+#line 39
     testRunner.When("The user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 52
+#line 40
     testRunner.And("the user chooses to delete the customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 53
+#line 41
     testRunner.And("The user confirms the deletion.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 54
+#line 42
     testRunner.Then("the user sees that the customer has been successfully deleted.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
