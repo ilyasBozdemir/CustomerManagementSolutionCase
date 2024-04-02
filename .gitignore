@@ -1,7 +1,3 @@
-# Bin ve obj klasörleri
-bin/
-obj/
-
 # .vs klasörü (lokal geliştirme yapılandırma dosyaları)
 .vs/
 

@@ -1,0 +1,13 @@
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\bin\Debug\net7.0\CustomerManagement.Infrastructure.deps.json
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\bin\Debug\net7.0\CustomerManagement.Infrastructure.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\bin\Debug\net7.0\CustomerManagement.Infrastructure.pdb
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.csproj.AssemblyReference.cache
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.AssemblyInfoInputs.cache
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.AssemblyInfo.cs
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.sourcelink.json
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\refint\CustomerManagement.Infrastructure.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\CustomerManagement.Infrastructure.pdb
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net7.0\ref\CustomerManagement.Infrastructure.dll

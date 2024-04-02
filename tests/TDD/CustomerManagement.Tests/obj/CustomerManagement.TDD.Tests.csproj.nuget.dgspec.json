@@ -1,0 +1,350 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\tests\\TDD\\CustomerManagement.TDD.Tests\\CustomerManagement.TDD.Tests.csproj": {}
+  },
+  "projects": {
+    "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\CustomerManagement.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\CustomerManagement.Application.csproj",
+        "projectName": "CustomerManagement.Application",
+        "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\CustomerManagement.Application.csproj",
+        "packagesPath": "C:\\Users\\ilyas bozdemir\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ilyas bozdemir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj": {
+                "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj",
+        "projectName": "CustomerManagement.Domain",
+        "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj",
+        "packagesPath": "C:\\Users\\ilyas bozdemir\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ilyas bozdemir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "libphonenumbers-dotnet": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\CustomerManagement.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\CustomerManagement.Persistence.csproj",
+        "projectName": "CustomerManagement.Persistence",
+        "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\CustomerManagement.Persistence.csproj",
+        "packagesPath": "C:\\Users\\ilyas bozdemir\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ilyas bozdemir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj": {
+                "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\tests\\TDD\\CustomerManagement.TDD.Tests\\CustomerManagement.TDD.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\tests\\TDD\\CustomerManagement.TDD.Tests\\CustomerManagement.TDD.Tests.csproj",
+        "projectName": "CustomerManagement.TDD.Tests",
+        "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\tests\\TDD\\CustomerManagement.TDD.Tests\\CustomerManagement.TDD.Tests.csproj",
+        "packagesPath": "C:\\Users\\ilyas bozdemir\\.nuget\\packages\\",
+        "outputPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\tests\\TDD\\CustomerManagement.TDD.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\ilyas bozdemir\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\CustomerManagement.Application.csproj": {
+                "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Application\\CustomerManagement.Application.csproj"
+              },
+              "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj": {
+                "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Core\\CustomerManagement.Domain\\CustomerManagement.Domain.csproj"
+              },
+              "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\CustomerManagement.Persistence.csproj": {
+                "projectPath": "D:\\Github\\Cases\\SeniorDotnetDeveloperCase\\CustomerManagementSolutionCase\\src\\Infrastructure\\CustomerManagement.Persistence\\CustomerManagement.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
+            "SpecFlow.Tools.MsBuild.Generation": {
+              "target": "Package",
+              "version": "[3.9.74, )"
+            },
+            "SpecFlow.xUnit": {
+              "target": "Package",
+              "version": "[3.9.74, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.7.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.5.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.103/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
