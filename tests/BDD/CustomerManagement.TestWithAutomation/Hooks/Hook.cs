@@ -54,45 +54,59 @@ AfterTestRun: Used to specify operations performed after the test run is finishe
  */
 
 
-//[Binding]
-//public sealed class Hook
-//{
-//    private IWebDriver _driver;
+[Binding]
+public class Hooks
+{
+    private static IWebDriver _driver;
 
-//    [BeforeScenario]
-//    public void BeforeScenario()
-//    {
-//        WebDriverFactory.InitializeWebDriver();
-//        _driver = WebDriverFactory.GetDriver();
-//    }
+    [BeforeTestRun]
+    public static void BeforeTestRun()
+    {
+        
+    }
 
-//    [AfterScenario]
-//    public void AfterScenario()
-//    {
-//        WebDriverFactory.CloseWebDriver();
-//    }
+    [BeforeFeature]
+    public static void BeforeFeature()
+    {
+     
+    }
 
-//    [BeforeFeature]
-//    public static void BeforeFeature() { }
+    [BeforeScenario]
+    public static void BeforeScenario()
+    {
+        WebDriverFactory.InitializeWebDriver();
+        _driver = WebDriverFactory.GetDriver();
+    }
 
-//    [AfterFeature]
-//    public static void AfterFeature() { }
+    [BeforeStep]
+    public static void BeforeStep()
+    {
+     
+    }
 
-//    [Before]
-//    public void BeforeMethod() { }
+    [AfterStep]
+    public static void AfterStep()
+    {
+    
+    }
 
-//    [After]
-//    public void AfterMethod() { }
+    [AfterScenario]
+    public static void AfterScenario()
+    {
+       
+        WebDriverFactory.CloseWebDriver();
+    }
 
-//    [BeforeTestRun]
-//    public static void BeforeTestRun() { }
+    [AfterFeature]
+    public static void AfterFeature()
+    {
+       
+    }
 
-//    [AfterTestRun]
-//    public static void AfterTestRun() { }
+    [AfterTestRun]
+    public static void AfterTestRun()
+    {
+      
+    }
+}
 
-//    [BeforeStep]
-//    public void BeforeStep() { }
-
-//    [AfterStep]
-//    public void AfterStep() { }
-//}
