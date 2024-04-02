@@ -1,7 +1,6 @@
-﻿using CustomerManagement.BDD.Tests.Utils;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
-namespace CustomerManagement.Tests.PageObjects.Components;
+namespace CustomerManagement.TestWithAutomation.PageObjects.Components;
 
 public class CustomerCreatePageComponents: BasePageComponents
 {

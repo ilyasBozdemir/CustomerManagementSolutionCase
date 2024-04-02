@@ -3,7 +3,7 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
-namespace CustomerManagement.BDD.Tests.PageObjects;
+namespace CustomerManagement.BDD.TestWithAutomation.PageObjects;
 
 public abstract class BasePage
 {

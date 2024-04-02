@@ -2,20 +2,21 @@
 using OpenQA.Selenium.Chrome;
 using System.Reflection;
 
-namespace CustomerManagement.BDD.Tests.Utils;
+namespace CustomerManagement.TestWithAutomation.Drivers;
 
 public static class WebDriverFactory
 {
     private static IWebDriver _driver;
-   
+
     public static void InitializeWebDriver()
     {
         ChromeOptions options = new ChromeOptions();
-   
-        options.AddArgument("--start-maximized");        
+
+        options.AddArgument("--start-maximized");
         options.AddArgument("--ignore-certificate-errors");
         options.AddArguments("disable-popup-blocking");
         options.AddArgument("--headless");
+      
         _driver = new ChromeDriver(options);
         _driver = new ChromeDriver(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), options);
     }
@@ -41,3 +42,4 @@ public static class WebDriverFactory
         return _driver;
     }
 }
+

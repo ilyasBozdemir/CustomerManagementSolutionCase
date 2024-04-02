@@ -1,16 +1,12 @@
-﻿using CustomerManagement.BDD.Tests.Utils;
-using OpenQA.Selenium.Support.UI;
+﻿using CustomerManagement.TestWithAutomation.Drivers;
 using OpenQA.Selenium;
-using TechTalk.SpecFlow;
-using CustomerManagement.Tests.PageObjects.Pages;
 
-
-namespace CustomerManagement.BDD.Tests.Hooks;
+namespace CustomerManagement.TestWithAutomation.Hooks;
 
 /*
- 
+
   BeforeScenario and AfterScenario:
- 
+
   * These attributes are used to perform specific operations before and after each scenario is run.
    For example, starting and closing WebDriver.
 
@@ -27,7 +23,7 @@ BeforeTestRun and AfterTestRun:
 
  * These attributes are used to perform certain operations before and after the test run starts.
    For example, opening the database connection before the test run starts and closing the database connection after the test run is finished.
-  
+
 BeforeStep and AfterStep:
 
 * These attributes are used to perform specific operations before and after each scenario step.
@@ -59,26 +55,13 @@ AfterTestRun: Used to specify operations performed after the test run is finishe
 
 
 //[Binding]
-//public class Hooks
+//public sealed class Hook
 //{
-//    private readonly ScenarioContext _scenarioContext;
-//    private readonly FeatureContext _featureContext;
-//    private readonly ScenarioStepContext _scenarioStepContext;
-
 //    private IWebDriver _driver;
-
-
-//    public Hooks(ScenarioContext scenarioContext, FeatureContext featureContext, ScenarioStepContext scenarioStepContext)
-//    {
-//        _scenarioContext = scenarioContext;
-//        _featureContext = featureContext;
-//        _scenarioStepContext = scenarioStepContext;
-//    }
 
 //    [BeforeScenario]
 //    public void BeforeScenario()
 //    {
-//        Console.WriteLine("Before scenario: {Scenario}", _scenarioContext.ScenarioInfo.Title);
 //        WebDriverFactory.InitializeWebDriver();
 //        _driver = WebDriverFactory.GetDriver();
 //    }
@@ -86,55 +69,30 @@ AfterTestRun: Used to specify operations performed after the test run is finishe
 //    [AfterScenario]
 //    public void AfterScenario()
 //    {
-//        Console.WriteLine("After scenario: {Scenario}", _scenarioContext.ScenarioInfo.Title);
 //        WebDriverFactory.CloseWebDriver();
 //    }
 
 //    [BeforeFeature]
-//    public static void BeforeFeature()
-//    {
-//        Console.WriteLine("Before feature: {Feature}");
-//    }
+//    public static void BeforeFeature() { }
 
 //    [AfterFeature]
-//    public static void AfterFeature()
-//    {
-//        Console.WriteLine("After feature: {Feature}");
-//    }
+//    public static void AfterFeature() { }
 
 //    [Before]
-//    public void BeforeMethod()
-//    {
-//        Console.WriteLine("Before : {Before}", _scenarioContext.ScenarioInfo.Title);
-//    }
+//    public void BeforeMethod() { }
 
 //    [After]
-//    public void AfterMethod()
-//    {
-//        Console.WriteLine("After : {After}", _scenarioContext.ScenarioInfo.Title);
-//    }
+//    public void AfterMethod() { }
 
 //    [BeforeTestRun]
-//    public static void BeforeTestRun()
-//    {
-      
-//    }
+//    public static void BeforeTestRun() { }
 
 //    [AfterTestRun]
-//    public static void AfterTestRun()
-//    {
-      
-//    }
+//    public static void AfterTestRun() { }
 
 //    [BeforeStep]
-//    public void BeforeStep()
-//    {
-//        Console.WriteLine("Before Step : {Step}", _scenarioStepContext.StepInfo);
-//    }
+//    public void BeforeStep() { }
 
 //    [AfterStep]
-//    public void AfterStep()
-//    {
-//        Console.WriteLine("After Step : {Step}", _scenarioStepContext.StepInfo);
-//    }
+//    public void AfterStep() { }
 //}

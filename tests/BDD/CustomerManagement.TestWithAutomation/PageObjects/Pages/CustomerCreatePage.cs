@@ -1,9 +1,9 @@
-﻿using CustomerManagement.BDD.Tests.PageObjects;
-using CustomerManagement.Tests.PageObjects.Components;
+﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
+using CustomerManagement.TestWithAutomation.PageObjects.Components;
 using OpenQA.Selenium;
 
 
-namespace CustomerManagement.Tests.PageObjects.Pages;
+namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
 public class CustomerCreatePage : BasePage
 {

@@ -1,6 +1,6 @@
 ﻿using OpenQA.Selenium;
 
-namespace CustomerManagement.Tests.PageObjects.Components;
+namespace CustomerManagement.TestWithAutomation.PageObjects.Components;
 
 public class CustomerIndexPageComponents : BasePageComponents
 {
