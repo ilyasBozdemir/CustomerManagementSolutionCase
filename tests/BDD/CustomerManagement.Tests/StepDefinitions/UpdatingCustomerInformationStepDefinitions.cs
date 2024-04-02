@@ -3,7 +3,7 @@
 namespace CustomerManagement.Tests.StepDefinitions;
 
 [Binding]
-[Scope(Feature = "Customer Management", Scenario = "Updating Customer Information")]
+[Scope(Feature = "Customer Management", Scenario = "Updating Customer Information", Tag = "UpdatingCustomerInformation")]
 public class UpdatingCustomerInformationStepDefinitions
 {
     private readonly ScenarioContext _scenarioContext;

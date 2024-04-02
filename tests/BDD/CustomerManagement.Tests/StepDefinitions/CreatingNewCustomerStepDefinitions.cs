@@ -5,7 +5,7 @@ using TechTalk.SpecFlow;
 namespace CustomerManagement.Tests.StepDefinitions;
 
 [Binding]
-[Scope(Feature = "Customer Management", Scenario = "Creating a New Customer")]
+[Scope(Feature = "Customer Management", Scenario = "Creating a New Customer", Tag = "CreateCustomer")]
 public class CreatingNewCustomerStepDefinitions
 {
     private readonly ScenarioContext _scenarioContext;
