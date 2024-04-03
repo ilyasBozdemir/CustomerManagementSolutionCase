@@ -2,7 +2,7 @@
 This GitHub repository provides a basic template for a simple CRUD (Create, Read, Update, Delete) application using .NET Core. The application has been developed in a layered structure, following Clean Architecture principles. It provides an API server to perform CRUD operations and includes a simple database model to manage customer data.
 
 
-# CRUD Code Test 
+## CRUD Code Test 
 
 Please read each note very carefully!
 Feel free to add/change the project structure to a clean architecture to your view.
@@ -20,7 +20,7 @@ Customer {
 	BankAccountNumber
 }
 ```
-## Practices and patterns (Must):
+### Practices and patterns (Must):
 
 - [TDD](https://docs.microsoft.com/en-us/visualstudio/test/quick-start-test-driven-development-with-test-explorer?view=vs-2022)
 - [DDD](https://en.wikipedia.org/wiki/Domain-driven_design)

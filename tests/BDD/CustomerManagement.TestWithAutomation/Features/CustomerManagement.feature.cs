@@ -112,7 +112,7 @@ namespace CustomerManagement.TestWithAutomation.Features
                 this.ScenarioStart();
 #line 6
     testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Create\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                        "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
     testRunner.When("the user chooses to create a new customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

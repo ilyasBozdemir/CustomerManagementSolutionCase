@@ -3,7 +3,7 @@
 
   @CreateCustomer
   Scenario: Creating a New Customer
-    Given The user opens the application and enters the address 'https://localhost:7189/Customer/Create'.
+    Given The user opens the application and enters the address 'https://localhost:7189/Customer/Index'.
     When the user chooses to create a new customer.
     And the user enters the new customer's name as 'John'.
     And the user enters the new customer's last name as 'Doe'.

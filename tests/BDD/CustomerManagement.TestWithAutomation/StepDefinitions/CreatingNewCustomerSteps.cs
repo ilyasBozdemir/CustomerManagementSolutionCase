@@ -1,34 +1,34 @@
 ﻿using CustomerManagement.TestWithAutomation.Drivers;
+using CustomerManagement.TestWithAutomation.PageObjects.Pages;
+using OpenQA.Selenium.Support.UI;
 
 namespace CustomerManagement.TestWithAutomation.StepDefinitions;
 
 [Binding, Scope(Feature = "Customer Management", Scenario = "Creating a New Customer", Tag = "CreateCustomer")]
 public class CreatingNewCustomerSteps
 {
-    private readonly ScenarioContext _scenarioContext;
     private IWebDriver _driver;
-    public CreatingNewCustomerSteps(ScenarioContext scenarioContext)
-    {
-        _scenarioContext = scenarioContext;
-    }
 
     [Given(@"The user opens the application and enters the address '(.*)'\.")]
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
-        // Burada uygulama açılır ve verilen adres girilir.
+        // I used all the steps in this step as a trial.
+
+        _driver = WebDriverFactory.GetDriver();
+
 
     }
 
     [When(@"the user chooses to create a new customer\.")]
     public void WhenTheUserChoosesToCreateANewCustomer()
     {
-        // Burada yeni bir müşteri oluşturulması seçeneği seçilir
+      
     }
 
     [When(@"the user enters the new customer's name as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerNameAs(string name)
     {
-        // Yeni müşterinin adı girilir
+       
     }
 
     [When(@"the user enters the new customer's last name as '(.*)'\.")]

@@ -16,7 +16,6 @@ public class LoggerService : ILoggerService
         string dayDirectory = directoryManager.CreateDirectoryStructure();
         string fileName = $"log_{DateTime.Now:yyyyMMdd_HHmmss}";
 
-        Console.WriteLine($"Oluşturulan gün dizininin yolu: {dayDirectory}");
 
         Log.Logger = new LoggerConfiguration()
             .WriteTo.Console()
@@ -39,14 +38,14 @@ public class LoggerService : ILoggerService
                 formatter: new Serilog.Formatting.Compact.RenderedCompactJsonFormatter(),
                 pathFormat: Path.Combine(dayDirectory, $"{fileName}_{{Date}}.log")
             )
-            .WriteTo.Email(
-                from: "sender@example.com",
-                to: "recipient@example.com",
-                host: "smtp.example.com",
-                subject: "Log",
-                restrictedToMinimumLevel: LogEventLevel.Information,
-                formatProvider: CultureInfo.InvariantCulture
-            )
+            //.WriteTo.Email(
+            //    from: "sender@example.com",
+            //    to: "recipient@example.com",
+            //    host: "smtp.example.com",
+            //    subject: "Log",
+            //    restrictedToMinimumLevel: LogEventLevel.Information,
+            //    formatProvider: CultureInfo.InvariantCulture
+            //)
             .MinimumLevel.Information()
             .Enrich.WithProperty("AppName", "BDD with Selenium Test Example")
             .Enrich.WithProperty("Environment", "Development")
