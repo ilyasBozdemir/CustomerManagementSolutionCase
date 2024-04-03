@@ -1,0 +1,4 @@
+2024-04-03 13:29:44.390 +03:00 [INF] Scenario started.
+2024-04-03 13:29:45.532 +03:00 [INF] Scenario finished.
+2024-04-03 13:29:45.534 +03:00 [INF] GetExecutingAssembly D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\BDD\CustomerManagement.TestWithAutomation\bin\Debug\net6.0\CustomerManagement.TestWithAutomation.dll
+2024-04-03 13:29:45.534 +03:00 [INF] absolutePath D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\BDD\CustomerManagement.TestWithAutomation\bin\Logs

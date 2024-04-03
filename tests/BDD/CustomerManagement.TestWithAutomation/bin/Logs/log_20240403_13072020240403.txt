@@ -1,0 +1,2 @@
+2024-04-03 13:07:20.301 +03:00 [INF] Scenario started.
+2024-04-03 13:07:21.502 +03:00 [INF] Scenario finished.

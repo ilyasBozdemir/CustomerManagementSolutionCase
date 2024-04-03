@@ -23,3 +23,6 @@ D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Inf
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net8.0\refint\CustomerManagement.Infrastructure.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net8.0\CustomerManagement.Infrastructure.pdb
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net8.0\ref\CustomerManagement.Infrastructure.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\bin\Debug\net8.0\CustomerManagement.Domain.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\bin\Debug\net8.0\CustomerManagement.Domain.pdb
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\src\Infrastructure\CustomerManagement.Infrastructure\obj\Debug\net8.0\CustomerManagement.Infrastructure.csproj.CopyComplete
