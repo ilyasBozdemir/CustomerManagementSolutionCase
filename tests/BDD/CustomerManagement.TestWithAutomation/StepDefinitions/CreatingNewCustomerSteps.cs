@@ -16,7 +16,7 @@ public class CreatingNewCustomerSteps
 
         _driver = WebDriverFactory.GetDriver();
 
-
+        WebDriverFactory.NavigateTo(address);
     }
 
     [When(@"the user chooses to create a new customer\.")]
