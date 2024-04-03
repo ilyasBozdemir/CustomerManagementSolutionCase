@@ -1,13 +1,13 @@
-﻿global using FluentAssertions;
-global using TechTalk.SpecFlow;
-global using Xunit;
+﻿global using TechTalk.SpecFlow;
 global using OpenQA.Selenium;
 global using OpenQA.Selenium.Chrome;
+global using OpenQA.Selenium.Support.UI;
+using System.Reflection;
+using CustomerManagement.TestWithAutomation.PageObjects.Pages;
+using Xunit;
 
-//Console.WriteLine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location));//test  path
 
-////testing driver 
-
+//testing driver 
 
 //string _driverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -30,7 +30,20 @@ global using OpenQA.Selenium.Chrome;
 //_driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(40);
 //_driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(40);
 
-//_driver.Navigate().GoToUrl("https://localhost:7189/Customer");
+//CustomerCreatePage  _createPage = new CustomerCreatePage();
+
+//_customerPage.NavigateToCustomerPage("https://localhost:7189/Customer/Index");
+//_customerPage.ClickCreateCustomerButton();
+//_customerPage.FillCustomerFirstName("Mehmet");
+//_customerPage.FillCustomerLastName("Bozdemir");
+//_customerPage.FillCustomerDateOfBirth("12.04.1996");
+//_customerPage.FillCustomerPhoneNumber("+905553331122");
+//_customerPage.FillCustomerEmail("john.doe@example.com");
+//_customerPage.FillCustomerBankAccountNumberInput("1234567890");
+//_customerPage.ClickCreateCustomerConfirmButton();
+//Assert.True(_customerPage.IsSuccessMessageDisplayed("Customer created successfully."));
+
+
 
 Console.ReadLine();
 

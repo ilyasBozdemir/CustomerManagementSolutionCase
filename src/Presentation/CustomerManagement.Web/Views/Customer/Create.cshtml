@@ -39,3 +39,21 @@
     <button type="submit" class="btn btn-primary">Create</button>
     <a asp-action="Index">Back to List</a>
 </form>
+
+@{
+    var successMessage = TempData["SuccessMessage"] as string;
+}
+
+@if (!string.IsNullOrEmpty(successMessage))
+{
+    <script>
+        window.onload = function () {
+            var message = '@successMessage';
+            if (message) {
+                alert(message);
+                window.location.href = '/Customer/Index';
+            }
+        };
+    </script>
+}
+

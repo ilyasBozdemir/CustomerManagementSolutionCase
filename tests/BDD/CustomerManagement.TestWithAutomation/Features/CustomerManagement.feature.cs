@@ -127,7 +127,7 @@ namespace CustomerManagement.TestWithAutomation.Features
     testRunner.And("The user enters the new customer\'s date of birth as \'01.01.1990\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 11
-    testRunner.And("The user enters the new customer\'s phone number as \'1234567890\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("The user enters the new customer\'s phone number as \'+905553331122\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
     testRunner.And("the user enters the new customer\'s email address as \'john.doe@example.com\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

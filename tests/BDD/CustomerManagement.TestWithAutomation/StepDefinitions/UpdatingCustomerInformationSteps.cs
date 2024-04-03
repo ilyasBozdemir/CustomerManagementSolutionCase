@@ -4,6 +4,7 @@
 [Binding, Scope(Feature = "Customer Management", Scenario = "Updating Customer Information", Tag = "UpdatingCustomerInformation")]
 public class UpdatingCustomerInformationSteps
 {
+
     private readonly ScenarioContext _scenarioContext;
 
     public UpdatingCustomerInformationSteps(ScenarioContext scenarioContext)
@@ -15,6 +16,8 @@ public class UpdatingCustomerInformationSteps
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
         // Kullanıcı uygulamayı açar ve belirtilen adrese girer
+        string CustomerId = address.Replace("{customer-id}", _scenarioContext["CustomerId"] as string);
+
     }
 
     [When(@"the user selects a customer from the customer list\.")]

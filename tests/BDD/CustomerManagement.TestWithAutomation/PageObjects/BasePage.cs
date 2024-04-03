@@ -1,7 +1,5 @@
 ﻿using CustomerManagement.TestWithAutomation.Drivers;
-using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
-using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 
 namespace CustomerManagement.BDD.TestWithAutomation.PageObjects;
@@ -11,11 +9,11 @@ public abstract class BasePage
     protected IWebDriver driver;
     protected WebDriverWait wait;
     protected Actions actions;
+    protected readonly string _baseUrl;
 
-
-    public BasePage(IWebDriver _driver)
+    public BasePage()
     {
-        this.driver = _driver;
+        this.driver = WebDriverFactory.GetDriver();
         this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         this.actions = new Actions(driver);
     }
@@ -24,7 +22,10 @@ public abstract class BasePage
     {
         return wait.Until(ExpectedConditions.ElementIsVisible(locator));
     }
-
+    public void NavigateTo(string relativePath)
+    {
+        driver.Navigate().GoToUrl(_baseUrl + relativePath);
+    }
     public void ClickElement(By locator)
     {
         FindElement(locator).Click();
@@ -39,6 +40,28 @@ public abstract class BasePage
         wait.Until(ExpectedConditions.TextToBePresentInElementLocated(locator, text));
         FindElement(locator).SendKeys(text);
     }
+
+    public string GetCurrentUrl()
+    {
+        return driver.Url;
+    }
+
+    public Guid ExtractUserIdFromUrl(string url)
+    {
+     
+        string[] parts = url.Trim('/').Split('/');
+
+  
+        string userIdString = parts[parts.Length - 1];
+
+        if (Guid.TryParse(userIdString, out Guid userId))
+            return userId;
+        else
+            throw new ArgumentException("Invalid URL format: Unable to extract user ID.");
+        
+    }
+
+
 
     public string GetTextFromElement(By locator)
     {

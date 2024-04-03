@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CustomerManagement.TestWithAutomation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dcd305e8bf3815b1f1714fbad107a4097bd07cdd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+55641697e56198e9affb259bc17a7b077e2621e7")]
 [assembly: System.Reflection.AssemblyProductAttribute("CustomerManagement.TestWithAutomation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CustomerManagement.TestWithAutomation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

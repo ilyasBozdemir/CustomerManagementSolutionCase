@@ -4,6 +4,7 @@ using CustomerManagement.Application.Features.Commands.UpdateCustomer;
 using CustomerManagement.Application.Features.DTOs;
 using CustomerManagement.Application.Features.Queries.GetCustomer;
 using CustomerManagement.Application.Features.Queries.GetCustomers;
+using CustomerManagement.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -49,7 +50,8 @@ public class CustomerController : Controller
             var result = await _mediator.Send(command);
             if (result.Success)
             {
-                return RedirectToAction(nameof(Index));
+                TempData["SuccessMessage"] = "Customer created successfully.";
+                return View();
             }
             else
             {

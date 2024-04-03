@@ -1,75 +1,78 @@
-﻿using CustomerManagement.TestWithAutomation.Drivers;
-using CustomerManagement.TestWithAutomation.PageObjects.Pages;
-using OpenQA.Selenium.Support.UI;
+﻿using CustomerManagement.TestWithAutomation.PageObjects.Pages;
+using Xunit;
 
 namespace CustomerManagement.TestWithAutomation.StepDefinitions;
 
 [Binding, Scope(Feature = "Customer Management", Scenario = "Creating a New Customer", Tag = "CreateCustomer")]
 public class CreatingNewCustomerSteps
 {
-    private IWebDriver _driver;
+    private CustomerIndexPage _customerPage;
+    private CustomerCreatePage _createPage;
+
+    private CreatingNewCustomerSteps()
+    {
+        _customerPage = new();
+        _createPage = new();
+    }
+
 
     [Given(@"The user opens the application and enters the address '(.*)'\.")]
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
-        // I used all the steps in this step as a trial.
-
-        _driver = WebDriverFactory.GetDriver();
-
-        WebDriverFactory.NavigateTo(address);
+        _createPage.NavigateToCustomerPage(address);
     }
 
     [When(@"the user chooses to create a new customer\.")]
     public void WhenTheUserChoosesToCreateANewCustomer()
     {
-      
+        _customerPage.ClickCreateCustomerButton();
     }
 
     [When(@"the user enters the new customer's name as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerNameAs(string name)
     {
-       
+        _createPage.FillCustomerFirstName(name);
     }
 
     [When(@"the user enters the new customer's last name as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerLastNameAs(string lastName)
     {
-        // Yeni müşterinin soyadı girilir
+        _createPage.FillCustomerLastName(lastName);
     }
 
     [When(@"The user enters the new customer's date of birth as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerDateOfBirthAs(string dateOfBirth)
     {
-        // Yeni müşterinin doğum tarihi girilir
+        _createPage.FillCustomerDateOfBirth(dateOfBirth);
     }
 
     [When(@"The user enters the new customer's phone number as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerPhoneNumberAs(string phoneNumber)
     {
-        // Yeni müşterinin telefon numarası girilir
+        _createPage.FillCustomerPhoneNumber(phoneNumber);
     }
 
     [When(@"the user enters the new customer's email address as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerEmailAddressAs(string emailAddress)
     {
-        // Yeni müşterinin e-posta adresi girilir
+        _createPage.FillCustomerEmail(emailAddress);
     }
 
     [When(@"The user enters the new customer's bank account number as '(.*)'\.")]
     public void WhenTheUserEntersTheNewCustomerBankAccountNumberAs(string bankAccountNumber)
     {
-        // Yeni müşterinin banka hesap numarası girilir
+        _createPage.FillCustomerBankAccountNumberInput(bankAccountNumber);
     }
 
     [When(@"The user confirms that the new customer has been created\.")]
     public void WhenTheUserConfirmsThatTheNewCustomerHasBeenCreated()
     {
-        // Yeni müşterinin oluşturulduğu onaylanır
+        _createPage.ClickCreateCustomerConfirmButton();
     }
 
     [Then(@"the user sees that the new customer has been successfully created\.")]
     public void ThenTheUserSeesThatTheNewCustomerHasBeenSuccessfullyCreated()
     {
-        // Kullanıcı yeni müşterinin başarıyla oluşturulduğunu görür
+        Assert.True(_createPage.IsSuccessMessageDisplayed("Customer created successfully."));
     }
 }

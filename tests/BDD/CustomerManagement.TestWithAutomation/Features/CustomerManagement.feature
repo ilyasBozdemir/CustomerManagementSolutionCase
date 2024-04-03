@@ -8,7 +8,7 @@
     And the user enters the new customer's name as 'John'.
     And the user enters the new customer's last name as 'Doe'.
     And The user enters the new customer's date of birth as '01.01.1990'.
-    And The user enters the new customer's phone number as '1234567890'.
+    And The user enters the new customer's phone number as '+905553331122'.
     And the user enters the new customer's email address as 'john.doe@example.com'.
     And The user enters the new customer's bank account number as '1234567890'.
     And The user confirms that the new customer has been created.

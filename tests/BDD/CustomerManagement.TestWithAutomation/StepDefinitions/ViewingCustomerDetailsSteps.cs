@@ -13,7 +13,8 @@ public class ViewingCustomerDetailsSteps
     [Given(@"the user opens the application and enters the address '(.*)'\.")]
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
-        // Kullanıcı uygulamayı açar ve belirtilen adrese girer
+        // Kullanıcı uygulamayı açar ve belirtilen adrese girer.
+        string CustomerId = address.Replace("{customer-id}", _scenarioContext["CustomerId"] as string);
     }
 
     [When(@"the user selects a customer from the customer list\.")]

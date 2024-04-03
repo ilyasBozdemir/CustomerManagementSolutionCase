@@ -50,8 +50,6 @@ public static class WebDriverFactory
         }
     }
 
-    public static void NavigateTo(string relativePath) => _driver.Navigate().GoToUrl(relativePath);
-
     public static void CloseWebDriver()
     {
         //if (_driver != null)
@@ -67,5 +65,8 @@ public static class WebDriverFactory
 
         return _driver;
     }
+
+    public static bool DriverState() => _driver != null;
+
 }
 
