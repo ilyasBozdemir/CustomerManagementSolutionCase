@@ -12,3 +12,4 @@ public class CustomerEditPage : BasePage
     private string GetUrl() => $"{_baseUrl}/Edit/{_userId}";
     public bool IsEditPage() => GetCurrentUrl().Contains(Url);
 }
+
