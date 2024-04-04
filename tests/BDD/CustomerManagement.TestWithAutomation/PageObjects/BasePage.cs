@@ -33,6 +33,7 @@ public abstract class BasePage
     }
     public void ClickElement(By locator)
     {
+        wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         FindElement(locator).Click();
     }
     public  void ClickElement(IWebElement element)
@@ -41,7 +42,7 @@ public abstract class BasePage
     }
     public void SendKeysToElement(By locator, string text)
     {
-        wait.Until(ExpectedConditions.TextToBePresentInElementLocated(locator, text));
+        wait.Until(ExpectedConditions.ElementIsVisible(locator));
         FindElement(locator).SendKeys(text);
     }
 

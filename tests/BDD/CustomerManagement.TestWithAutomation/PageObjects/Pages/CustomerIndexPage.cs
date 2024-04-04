@@ -1,5 +1,5 @@
 ﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
-using SeleniumExtras.WaitHelpers;
+using System.Security.Policy;
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
@@ -13,8 +13,10 @@ public class CustomerIndexPage : BasePage
 
     public bool IsIndexPage()
     {
-        return driver.Url.Contains(Url);
+        return GetCurrentUrl().Contains(Url);
     }
+
+    public void NavigateToCustomerIndexPage(string url) => NavigateTo(url);
 
     public void ClickCreateCustomerButton()
     {

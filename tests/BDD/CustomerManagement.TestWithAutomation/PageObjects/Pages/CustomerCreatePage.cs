@@ -6,83 +6,122 @@ namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
 public class CustomerCreatePage : BasePage
 {
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
-    private readonly IWebElement FirstNameInput;
-
-
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"LastName\"]")]
-    private readonly IWebElement LastNameInput;
-
-
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
-    private readonly IWebElement DateOfBirthInput;
-
-
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"BankAccountNumber\"]")]
-    private readonly IWebElement PhoneNumberInput;
-
-
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"Email\"]")]
-    private readonly IWebElement EmailInput;
-
-
-    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
-    private readonly IWebElement BankAccountNumberInput;
-
-
-    [FindsBy(How = How.XPath, Using = "/html/body/div/main/form/button")]
-    public readonly IWebElement CreateCustomerButtonForm;
+    public IWebElement FirstNameInput;
+    public IWebElement LastNameInput;
+    public IWebElement DateOfBirthInput;
+    public IWebElement PhoneNumberInput;
+    public IWebElement EmailInput;
+    public IWebElement BankAccountNumberInput;
+    public IWebElement CreateCustomerButtonForm;
 
     public string Url => _baseUrl + "/Customer/Create";
-    public CustomerCreatePage():base()
+    public CustomerCreatePage() : base()
     {
 
     }
-    public void NavigateToCustomerPage(string url)
-    {
-        base.NavigateTo(url);
-    }
 
+
+    public bool IsCreatePage() => GetCurrentUrl().Contains(Url);
+
+
+    #region Fill Form Elements
     public void FillCustomerFirstName(string FirstName)
     {
-        By by = FirstNameInput as By;
-
-        base.SendKeysToElement(by, FirstName);
+        if (IsCreatePage())
+        {
+            By firstNameLocator = By.XPath("//*[@id=\"FirstName\"]");
+            SendKeysToElement(firstNameLocator, FirstName);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to fill the customer first name.");
+        }
     }
+
 
     public void FillCustomerLastName(string LastName)
     {
-        By by = LastNameInput as By;
-        base.SendKeysToElement(by, LastName);
+
+        if (IsCreatePage())
+        {
+            SendKeysToElement(By.XPath("//*[@id=\"LastName\"]"), LastName);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
+
     }
+
 
     public void FillCustomerDateOfBirth(string DateOfBirth)
     {
-        By by = DateOfBirthInput as By;
-        base.SendKeysToElement(by, DateOfBirth);
+        if (IsCreatePage())
+        {
+            SendKeysToElement(By.XPath("//*[@id=\"DateOfBirth\"]"), DateOfBirth);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
+
     }
+
 
     public void FillCustomerPhoneNumber(string PhoneNumber)
     {
-        By by = PhoneNumberInput as By;
-        base.SendKeysToElement(by, PhoneNumber);
+        if (IsCreatePage())
+        {
+            SendKeysToElement(By.XPath("//*[@id=\"PhoneNumber\"]"), PhoneNumber);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
+
     }
+
 
     public void FillCustomerEmail(string Email)
     {
-        By by = EmailInput as By;
-        base.SendKeysToElement(by, Email);
+        if (IsCreatePage())
+        {
+            SendKeysToElement(By.XPath("//*[@id=\"Email\"]"), Email);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
+
     }
+
 
     public void FillCustomerBankAccountNumberInput(string BankAccountNumber)
     {
-        By by = BankAccountNumberInput as By;
-        base.SendKeysToElement(by, BankAccountNumber);
+        if (IsCreatePage())
+        {
+            SendKeysToElement(By.XPath("//*[@id=\"BankAccountNumber\"]"), BankAccountNumber);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
     }
+
+    #endregion
+
 
     public void ClickCreateCustomerConfirmButton()
     {
-        CreateCustomerButtonForm.Click();
+        if (IsCreatePage())
+        {
+            CreateCustomerButtonForm = FindElement(By.XPath("/html/body/div/main/form/button"));
+            ClickElement(CreateCustomerButtonForm);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
     }
 
     public bool IsSuccessMessageDisplayed(string expectedMessage)
@@ -92,7 +131,10 @@ public class CustomerCreatePage : BasePage
             IAlert alert = base.driver.SwitchTo().Alert();
 
             if (alert.Text.Equals(expectedMessage))
+            {
+                alert.Accept();
                 return true;
+            }
             else
                 return false;
         }
