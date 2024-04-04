@@ -57,6 +57,7 @@ D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\T
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\Moq.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\NuGet.Frameworks.dll
+D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\Serilog.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\TechTalk.SpecFlow.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\SpecFlow.Internal.Json.dll
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
@@ -171,4 +172,3 @@ D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\T
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\obj\Debug\net8.0\CustomerManagement.Tests.pdb
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\obj\Debug\net8.0\CustomerManagement.Tests.genruntimeconfig.cache
 D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\obj\Debug\net8.0\ref\CustomerManagement.Tests.dll
-D:\Github\Cases\SeniorDotnetDeveloperCase\CustomerManagementSolutionCase\tests\TDD\CustomerManagement.Tests\bin\Debug\net8.0\Serilog.dll

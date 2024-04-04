@@ -111,8 +111,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
     testRunner.When("the user chooses to create a new customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -176,8 +175,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 20
-    testRunner.Given("the user opens the application and enters the address \'https://localhost:7189/Edi" +
-                        "t/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the user opens the application and enters the address \'/Edit/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
     testRunner.When("the user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -232,8 +230,8 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 30
-    testRunner.Given("the user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Details/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the user opens the application and enters the address \'/Customer/Details/{custome" +
+                        "r-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 31
     testRunner.When("the user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -279,8 +277,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 37
-    testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 38
     testRunner.When("The user chooses to view the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -323,8 +320,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 43
-    testRunner.Given("The user opens the application and enters the address \'https://localhost:7189/Cus" +
-                        "tomer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 44
     testRunner.When("The user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

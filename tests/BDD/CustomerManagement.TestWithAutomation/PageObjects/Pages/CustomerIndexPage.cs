@@ -1,26 +1,31 @@
 ﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
-using CustomerManagement.Domain.ValueObjects;
-using CustomerManagement.TestWithAutomation.Drivers;
 using SeleniumExtras.WaitHelpers;
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
 public class CustomerIndexPage : BasePage
 {
-    public readonly IWebElement CreateCustomerButton;
+    public IWebElement CreateCustomerButton;
+
     public string Url => _baseUrl + "/Customer/Index";
-    public CustomerIndexPage()
+
+    public CustomerIndexPage() : base() { }
+
+    public bool IsIndexPage()
     {
-        this.driver = WebDriverFactory.GetDriver();
-
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-        CreateCustomerButton = driver.FindElement(By.XPath("/html/body/div/main/p/a"));
+        return driver.Url.Contains(Url);
     }
 
     public void ClickCreateCustomerButton()
     {
-        CreateCustomerButton.Click();
+        if (IsIndexPage())
+        {
+            CreateCustomerButton = FindElement(By.XPath("/html/body/div/main/p/a"));
+            ClickElement(CreateCustomerButton);
+        }
+        else
+        {
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        }
     }
 }

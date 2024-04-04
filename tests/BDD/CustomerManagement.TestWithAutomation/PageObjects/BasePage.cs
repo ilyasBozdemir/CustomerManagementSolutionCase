@@ -1,4 +1,5 @@
-﻿using CustomerManagement.TestWithAutomation.Drivers;
+﻿using CustomerManagement.TestWithAutomation.Constant;
+using CustomerManagement.TestWithAutomation.Drivers;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.WaitHelpers;
 
@@ -9,17 +10,21 @@ public abstract class BasePage
     protected IWebDriver driver;
     protected WebDriverWait wait;
     protected Actions actions;
-    protected readonly string _baseUrl;
+    protected const string _baseUrl = AppTestConstants.BaseUrl;
 
     public BasePage()
     {
         this.driver = WebDriverFactory.GetDriver();
         this.wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         this.actions = new Actions(driver);
+
+        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
     }
 
     public IWebElement FindElement(By locator)
     {
+    
         return wait.Until(ExpectedConditions.ElementIsVisible(locator));
     }
     public void NavigateTo(string relativePath)
@@ -32,8 +37,7 @@ public abstract class BasePage
     }
     public  void ClickElement(IWebElement element)
     {
-        wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(element));
-        element.Click();
+        wait.Until(ExpectedConditions.ElementToBeClickable(element)).Click();
     }
     public void SendKeysToElement(By locator, string text)
     {

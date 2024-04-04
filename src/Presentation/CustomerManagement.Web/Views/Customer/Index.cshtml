@@ -75,6 +75,7 @@ else
                         type: 'Post',
                         success: function (result) {
                             console.log('The deletion was successful.');
+                            window.location.reload();
                         },
                         error: function (xhr, status, error) {
                             console.error('An error occurred during the deletion process: ' + error);

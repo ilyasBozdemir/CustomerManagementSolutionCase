@@ -1,32 +1,42 @@
 ﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
-using CustomerManagement.TestWithAutomation.Drivers;
+using SeleniumExtras.PageObjects;
+
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
 public class CustomerCreatePage : BasePage
 {
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
     private readonly IWebElement FirstNameInput;
+
+
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"LastName\"]")]
     private readonly IWebElement LastNameInput;
+
+
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
     private readonly IWebElement DateOfBirthInput;
+
+
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"BankAccountNumber\"]")]
     private readonly IWebElement PhoneNumberInput;
+
+
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"Email\"]")]
     private readonly IWebElement EmailInput;
+
+
+    [FindsBy(How = How.XPath, Using = "//*[@id=\"FirstName\"]")]
     private readonly IWebElement BankAccountNumberInput;
+
+
+    [FindsBy(How = How.XPath, Using = "/html/body/div/main/form/button")]
     public readonly IWebElement CreateCustomerButtonForm;
 
     public string Url => _baseUrl + "/Customer/Create";
-    public CustomerCreatePage()
+    public CustomerCreatePage():base()
     {
-        this.driver = WebDriverFactory.GetDriver();
 
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
-
-        FirstNameInput = driver.FindElement(By.XPath("//*[@id=\"FirstName\"]"));
-        LastNameInput = driver.FindElement(By.XPath("//*[@id=\"LastName\"]"));
-        PhoneNumberInput = driver.FindElement(By.XPath("//*[@id=\"PhoneNumber\"]"));
-        EmailInput = driver.FindElement(By.XPath("//*[@id=\"Email\"]"));
-        BankAccountNumberInput = driver.FindElement(By.XPath("//*[@id=\"BankAccountNumber\"]"));
-        CreateCustomerButtonForm = driver.FindElement(By.XPath("/html/body/div/main/form/button"));
     }
     public void NavigateToCustomerPage(string url)
     {

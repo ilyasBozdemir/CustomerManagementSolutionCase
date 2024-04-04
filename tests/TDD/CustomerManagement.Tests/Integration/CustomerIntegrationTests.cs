@@ -1,7 +1,6 @@
 ﻿using CustomerManagement.Application.Features.Commands.CreateCustomer;
 using CustomerManagement.Domain.Entities;
 using CustomerManagement.Domain.Seedwork;
-using CustomerManagement.Domain.ValueObjects;
 using CustomerManagement.Persistence.Contexts;
 using CustomerManagement.Persistence.UnitOfWorks;
 using MediatR;

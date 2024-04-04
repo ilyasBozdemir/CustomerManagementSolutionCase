@@ -5,13 +5,12 @@ namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 public class CustomerDetailPage : BasePage
 {
     private readonly Guid _userId;
+
+    public string Url => GetUrl();
     public CustomerDetailPage(Guid userId)
     {
         _userId = userId;
-
-        WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-        wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
     }
-    public string GetUrl() => $"{_baseUrl}/Details/{_userId}";
+    private string GetUrl() => $"{_baseUrl}/Details/{_userId}";
    
 }
