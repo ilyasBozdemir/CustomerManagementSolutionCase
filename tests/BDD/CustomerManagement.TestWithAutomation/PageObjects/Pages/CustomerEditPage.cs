@@ -10,5 +10,5 @@ public class CustomerEditPage : BasePage
         _userId = userId;
     }
     private string GetUrl() => $"{_baseUrl}/Edit/{_userId}";
-   
+    public bool IsEditPage() => GetCurrentUrl().Contains(Url);
 }

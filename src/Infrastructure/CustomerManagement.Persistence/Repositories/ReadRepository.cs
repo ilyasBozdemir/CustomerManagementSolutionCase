@@ -24,14 +24,20 @@ public class ReadRepository<T> : IReadRepository<T> where T : BaseEntity
         return query;
     }
 
-    public async Task<T> GetByIdAsync(string id, bool tracking = true)
+    public async Task<bool> ExistsAsync(Expression<Func<T, bool>> predicate)
+    {
+        return await Table.AnyAsync(predicate);
+    }
+
+
+    public async Task<T> GetByIdAsync(Guid id, bool tracking = true)
     //=> await Table.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
     //=> await Table.FindAsync(Guid.Parse(id));
     {
         var query = Table.AsQueryable();
         if (!tracking)
             query = Table.AsNoTracking();
-        return await query.FirstOrDefaultAsync(data => data.Id == Guid.Parse(id));
+        return await query.FirstOrDefaultAsync(data => data.Id == id);
     }
 
     public async Task<Paginate<T>> GetPaginatedAsync(Expression<Func<T, bool>> filter, int pageIndex, int pageSize, bool tracking = true)

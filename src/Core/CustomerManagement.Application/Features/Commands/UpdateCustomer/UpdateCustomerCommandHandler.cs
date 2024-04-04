@@ -22,7 +22,7 @@ public class UpdateCustomerCommandHandler : IRequestHandler<UpdateCustomerComman
         {
             var customerReadRepository = _unitOfWork.GetReadRepository<Customer>();
 
-            var existingCustomer = await customerReadRepository.GetByIdAsync(request.CustomerId.ToString());
+            var existingCustomer = await customerReadRepository.GetByIdAsync(request.CustomerId);
             if (existingCustomer == null)
                 return new UpdateCustomerCommandResponse(false, 404, null, new[] { "Customer not found." });
             

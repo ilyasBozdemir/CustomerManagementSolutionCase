@@ -27,30 +27,47 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
                 BankAccountNumber = new Domain.ValueObjects.BankAccountNumber(request.BankAccountNumber)
             };
 
-            var customerRepository = _unitOfWork.GetWriteRepository<Customer>();
+            var customerWriteRepository = _unitOfWork.GetWriteRepository<Customer>();
+            var customerReadRepository = _unitOfWork.GetReadRepository<Customer>();
 
-            var addedState = customerRepository.AddAsync(newCustomer);
-            if (addedState.Result)
+            bool customerExists = await customerReadRepository.ExistsAsync(c => c.Email.Value == request.Email);
+
+            if (!customerExists)
             {
-             
-                await _mediator.Publish(new CustomerCreatedEvent(MapToDTO(newCustomer)));
-
-                return new CreateCustomerCommandResponse
+                var addedState = customerWriteRepository.AddAsync(newCustomer);
+                if (addedState.Result)
                 {
-                    Success = addedState.Result,
-                    StatusCode = 200,
-                    Data = newCustomer,
-                    Errors = Array.Empty<string>()
-                };
-              
+                    await _mediator.Publish(new CustomerCreatedEvent(MapToDTO(newCustomer)));
+                    return new CreateCustomerCommandResponse
+                    {
+                        Success = addedState.Result,
+                        StatusCode = 200,
+                        Data = newCustomer,
+                        Errors = Array.Empty<string>()
+                    };
+                }
+                else
+                {
+                    return new CreateCustomerCommandResponse
+                    {
+                        Success = addedState.Result,
+                        StatusCode = 400,
+                        Errors = new[] { "Customer with the same data already exists." }
+                    };
+                }
             }
             else
+            {
                 return new CreateCustomerCommandResponse
                 {
-                    Success = addedState.Result,
+                    Success = false,
                     StatusCode = 409,
                     Errors = new[] { "Customer with the same data already exists." }
                 };
+            }
+
+           
+                
         }
         catch (Exception ex)
         {

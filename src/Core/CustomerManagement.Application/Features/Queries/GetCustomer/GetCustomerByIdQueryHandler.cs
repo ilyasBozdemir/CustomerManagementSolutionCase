@@ -23,7 +23,7 @@ public class GetCustomerByIdQueryHandler : IRequestHandler<GetCustomerByIdQueryR
         {
             var customerReadRepository = _unitOfWork.GetReadRepository<Customer>();
 
-            var customer = await customerReadRepository.GetByIdAsync(request.CustomerId.ToString());
+            var customer = await customerReadRepository.GetByIdAsync(request.CustomerId);
 
 
             //return new DeleteCustomerCommandResponse(false, 404, null, new[] { "Customer not found." });

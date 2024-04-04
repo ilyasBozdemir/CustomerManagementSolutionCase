@@ -12,5 +12,5 @@ public class CustomerDetailPage : BasePage
         _userId = userId;
     }
     private string GetUrl() => $"{_baseUrl}/Details/{_userId}";
-   
+    public bool IsDetailPage() => GetCurrentUrl().Contains(Url);
 }

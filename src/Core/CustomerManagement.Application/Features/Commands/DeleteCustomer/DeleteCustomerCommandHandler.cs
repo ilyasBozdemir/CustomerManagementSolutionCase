@@ -20,8 +20,8 @@ public class DeleteCustomerCommandHandler : IRequestHandler<DeleteCustomerComman
         try
         {
             var customerReadRepository = _unitOfWork.GetReadRepository<Customer>();
-            var existingCustomer = await customerReadRepository.GetByIdAsync(request.CustomerId.ToString());
-
+            var existingCustomer = await customerReadRepository.GetByIdAsync(request.CustomerId);
+                
             if (existingCustomer == null)
                 return new DeleteCustomerCommandResponse(false, 404, null, new[] { "Customer not found." });
 

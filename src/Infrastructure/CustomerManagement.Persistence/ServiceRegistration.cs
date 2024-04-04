@@ -23,5 +23,6 @@ public static class ServiceRegistration
 
 
         services.AddScoped<IUnitOfWork, UnitOfWork>();
+    
     }
 }
