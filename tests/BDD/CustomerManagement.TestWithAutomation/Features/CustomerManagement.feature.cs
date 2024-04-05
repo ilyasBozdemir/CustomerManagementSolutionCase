@@ -111,13 +111,13 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 6
-    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 7
     testRunner.When("the user chooses to create a new customer.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
-    testRunner.And("the user enters the new customer\'s name as \'John\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("the user enters the new customer\'s name as \'Jane\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 9
     testRunner.And("the user enters the new customer\'s last name as \'Doe\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -175,7 +175,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 20
-    testRunner.Given("the user opens the application and enters the address \'/Edit/{customer-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the user opens the application and enters the address \'/Customer\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
     testRunner.When("the user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -184,7 +184,7 @@ namespace CustomerManagement.TestWithAutomation.Features
     testRunner.And("the user chooses to update customer information.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 23
-    testRunner.And("the user updates the customer\'s name to \'Jane\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("the user updates the customer\'s name to \'John\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 24
     testRunner.And("the user updates the customer\'s last name to \'Smith\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -230,8 +230,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 30
-    testRunner.Given("the user opens the application and enters the address \'/Customer/Details/{custome" +
-                        "r-id}\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("the user opens the application and enters the address \'/Customer\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 31
     testRunner.When("the user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -277,7 +276,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 37
-    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 39
     testRunner.Then("the user sees the current customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -317,7 +316,7 @@ namespace CustomerManagement.TestWithAutomation.Features
             {
                 this.ScenarioStart();
 #line 43
-    testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("The user opens the application and enters the address \'/Customer\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 44
     testRunner.When("The user selects a customer from the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");

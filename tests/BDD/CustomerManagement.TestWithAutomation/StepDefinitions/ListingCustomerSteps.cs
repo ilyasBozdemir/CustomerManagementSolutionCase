@@ -18,7 +18,7 @@ public class ListingCustomerSteps
     [Given(@"The user opens the application and enters the address '(.*)'\.")]
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
-        _indexPage. NavigateToCustomerIndexPage(address);
+        _indexPage.NavigateToCustomerIndexPage(address);
     }
 
     //[When(@"The user chooses to view the customer list\.")]

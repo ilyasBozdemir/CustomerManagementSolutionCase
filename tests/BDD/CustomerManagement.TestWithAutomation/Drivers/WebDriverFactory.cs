@@ -8,7 +8,7 @@ public static class WebDriverFactory
     private static IWebDriver _driver;
     private static DriverBrowserType  _browserType = DriverBrowserType.Chrome;
 
-    public static void InitializeWebDriver()
+    public static IWebDriver InitializeWebDriver()
     {
         string _driverPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
@@ -48,25 +48,22 @@ public static class WebDriverFactory
                     break;
             }
         }
-    }
-
-    public static void CloseWebDriver()
-    {
-        //if (_driver != null)
-        //{
-        //    _driver.Quit();
-        //    _driver = null;
-        //}
-    }
-    public static IWebDriver GetDriver()
-    {
-        if (_driver == null)
-            InitializeWebDriver();
-
         return _driver;
     }
+  
+    public static IWebDriver GetDriver() => _driver ??= InitializeWebDriver();
 
     public static bool DriverState() => _driver != null;
+
+  
+    public static void CloseWebDriver()
+    {
+        if (DriverState())
+        {
+            _driver.Quit();
+            _driver = null;
+        }
+    }
 
 }
 

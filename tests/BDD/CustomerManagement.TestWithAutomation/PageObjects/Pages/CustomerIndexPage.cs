@@ -6,7 +6,7 @@ public class CustomerIndexPage : BasePage
 {
     public IWebElement CreateCustomerButton;
 
-    public string Url => _baseUrl + "/Customer/Index";
+    public string Url => _baseUrl + "/Customer";
 
     public CustomerIndexPage() : base() { }
 
@@ -48,7 +48,16 @@ public class CustomerIndexPage : BasePage
     public void ClickDeleteLinkById(string customerId) => ClickLinkByActionAndId(customerId, "Delete");
 
 
-    public string GetFirstCustomerId() => FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
+    public string GetFirstCustomerId()
+    {
+        string result = FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
+
+        if (result is null)
+        {
+            throw new NullReferenceException();
+        }
+        return result;
+    }
 
 
     public bool IsSuccessMessageDisplayed(string expectedMessage)

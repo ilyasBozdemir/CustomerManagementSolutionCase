@@ -3,9 +3,9 @@
 
   @CreateCustomer
   Scenario: Creating a New Customer
-    Given The user opens the application and enters the address '/Customer/Index'.
+    Given The user opens the application and enters the address '/Customer'.
     When the user chooses to create a new customer.
-    And the user enters the new customer's name as 'John'.
+    And the user enters the new customer's name as 'Jane'.
     And the user enters the new customer's last name as 'Doe'.
     And The user enters the new customer's date of birth as '01.01.1990'.
     And The user enters the new customer's phone number as '+905553331122'.
@@ -17,30 +17,30 @@
 
   @UpdatingCustomerInformation
   Scenario: Updating Customer Information
-    Given the user opens the application and enters the address '/Edit/{customer-id}'.
+    Given the user opens the application and enters the address '/Customer'.
     When the user selects a customer from the customer list.
     And the user chooses to update customer information.
-    And the user updates the customer's name to 'Jane'.
+    And the user updates the customer's name to 'John'.
     And the user updates the customer's last name to 'Smith'.
     And the user confirms the update process.
     Then the user sees updated customer information.
 
   @ViewingCustomerDetails
   Scenario: Viewing Customer Details
-    Given the user opens the application and enters the address '/Customer/Details/{customer-id}'.
+    Given the user opens the application and enters the address '/Customer'.
     When the user selects a customer from the customer list.
     And the user chooses to view the details of the customer.
     Then the user sees the details of the selected customer.
 
   @ListingCustomer
   Scenario: Customer Listing
-    Given The user opens the application and enters the address '/Customer/Index'.
+    Given The user opens the application and enters the address '/Customer'.
     #When The user chooses to view the customer list.
     Then the user sees the current customer list.
 
   @CustomerDeletion
   Scenario: Customer Deletion
-    Given The user opens the application and enters the address '/Customer/Index'.
+    Given The user opens the application and enters the address '/Customer'.
     When The user selects a customer from the customer list.
     And the user chooses to delete the customer.
     And The user confirms the deletion.

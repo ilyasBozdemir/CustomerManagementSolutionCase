@@ -72,7 +72,7 @@ public class CustomerController : Controller
         return View(command);
     }
 
-    [HttpGet("Edit/{id}")]
+    [HttpGet("Customer/Edit/{id}")]
     public async Task<IActionResult> Edit([FromRoute] Guid id)
     {
         var customer = await _mediator.Send(new GetCustomerByIdQueryRequest() { CustomerId = id });
@@ -83,7 +83,7 @@ public class CustomerController : Controller
         return View(customer.Data);
     }
 
-    [HttpPost("Edit/{id}")]
+    [HttpPost("Customer/Edit/{id}")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Edit([FromRoute] Guid id, [FromForm] CustomerDTO model)
     {

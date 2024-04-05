@@ -2,6 +2,7 @@
 using CustomerManagement.TestWithAutomation.Drivers;
 using OpenQA.Selenium.Interactions;
 using SeleniumExtras.WaitHelpers;
+using System.Net;
 
 namespace CustomerManagement.BDD.TestWithAutomation.PageObjects;
 
@@ -12,6 +13,8 @@ public abstract class BasePage
     protected Actions actions;
     protected const string _baseUrl = AppTestConstants.BaseUrl;
 
+    private readonly HttpClient _httpClient;
+
     public BasePage()
     {
         this.driver = WebDriverFactory.GetDriver();
@@ -20,12 +23,17 @@ public abstract class BasePage
 
         WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
         wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
+
+        this._httpClient = new HttpClient();
     }
 
-
+    public async Task <HttpStatusCode> GetStatusCodeAsync(string Url)
+    {
+        HttpResponseMessage response = await _httpClient.GetAsync(Url);
+        return response.StatusCode;
+    }
 
     public IWebElement FindElement(By locator) => wait.Until(ExpectedConditions.ElementIsVisible(locator));
-
 
 
     public void NavigateTo(string relativePath) => driver.Navigate().GoToUrl(_baseUrl + relativePath);
@@ -43,11 +51,12 @@ public abstract class BasePage
     public void ClickElement(IWebElement element) => wait.Until(ExpectedConditions.ElementToBeClickable(element)).Click();
 
 
-
     public void SendKeysToElement(By locator, string text)
     {
         wait.Until(ExpectedConditions.ElementIsVisible(locator));
-        FindElement(locator).SendKeys(text);
+        var element = FindElement(locator);
+        element.Clear();
+        element.SendKeys(text);
     }
 
 
