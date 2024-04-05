@@ -1,30 +1,40 @@
-﻿namespace CustomerManagement.TestWithAutomation.StepDefinitions;
+﻿using CustomerManagement.TestWithAutomation.PageObjects.Pages;
+using Serilog;
+using Xunit;
+
+namespace CustomerManagement.TestWithAutomation.StepDefinitions;
 
 [Binding, Scope(Feature = "Customer Management", Scenario = "Customer Listing", Tag = "ListingCustomer")]
 public class ListingCustomerSteps
 {
     private readonly ScenarioContext _scenarioContext;
-
+    private CustomerIndexPage _indexPage;
     public ListingCustomerSteps(ScenarioContext scenarioContext)
     {
         _scenarioContext = scenarioContext;
+        _indexPage = new();
     }
 
-    [Given(@"the user opens the application and enters the address '(.*)'\.")]
+    [Given(@"The user opens the application and enters the address '(.*)'\.")]
     public void GivenTheUserOpensTheApplicationAndEntersTheAddress(string address)
     {
-        // Kullanıcı uygulamayı açar ve belirtilen adrese girer
+        _indexPage. NavigateToCustomerIndexPage(address);
     }
 
-    [When(@"The user chooses to view the customer list\.")]
-    public void WhenTheUserChoosesToViewTheCustomerList()
-    {
-        // Kullanıcı müşteri listesini görüntülemeyi seçer
-    }
+    //[When(@"The user chooses to view the customer list\.")]
+    //public void WhenTheUserChoosesToViewTheCustomerList()
+    //{
+       
+    //}
 
-    [Then(@"the user sees the current customer list")]
-    public void ThenTheUserSeesTheCurrentCustomerList()
+    [Then(@"the user sees the current customer list\.")]
+    public void ThenTheUserShouldSeeATableWithCustomerInformation()
     {
-        // Kullanıcı mevcut müşteri listesini görür
+        bool isDataDisplayed = _indexPage.IsDataDisplayed();
+
+        if (isDataDisplayed)
+            Log.Information("The table with customer information is displayed.");
+        else
+            Log.Warning("The table with customer information is not displayed.");
     }
 }

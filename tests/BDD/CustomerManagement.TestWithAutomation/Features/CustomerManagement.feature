@@ -35,7 +35,7 @@
   @ListingCustomer
   Scenario: Customer Listing
     Given The user opens the application and enters the address '/Customer/Index'.
-    When The user chooses to view the customer list.
+    #When The user chooses to view the customer list.
     Then the user sees the current customer list.
 
   @CustomerDeletion

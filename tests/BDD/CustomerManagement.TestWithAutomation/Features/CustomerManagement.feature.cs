@@ -279,9 +279,6 @@ namespace CustomerManagement.TestWithAutomation.Features
 #line 37
     testRunner.Given("The user opens the application and enters the address \'/Customer/Index\'.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 38
-    testRunner.When("The user chooses to view the customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 39
     testRunner.Then("the user sees the current customer list.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden

@@ -52,11 +52,11 @@ public static class WebDriverFactory
 
     public static void CloseWebDriver()
     {
-        if (_driver != null)
-        {
-            _driver.Quit();
-            _driver = null;
-        }
+        //if (_driver != null)
+        //{
+        //    _driver.Quit();
+        //    _driver = null;
+        //}
     }
     public static IWebDriver GetDriver()
     {

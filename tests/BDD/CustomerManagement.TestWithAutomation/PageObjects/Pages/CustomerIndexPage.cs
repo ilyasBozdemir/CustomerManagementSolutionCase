@@ -1,11 +1,4 @@
-﻿using CustomerManagement.Application.Features.Queries.GetCustomers;
-using CustomerManagement.BDD.TestWithAutomation.PageObjects;
-using CustomerManagement.Domain.Seedwork;
-using MediatR;
-using Moq;
-using SeleniumExtras.WaitHelpers;
-using Serilog;
-using System.Security.Policy;
+﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
@@ -17,10 +10,7 @@ public class CustomerIndexPage : BasePage
 
     public CustomerIndexPage() : base() { }
 
-    public bool IsIndexPage()
-    {
-        return GetCurrentUrl().Contains(Url);
-    }
+    public bool IsIndexPage() => GetCurrentUrl().Contains(Url);
 
     public void NavigateToCustomerIndexPage(string url) => NavigateTo(url);
 
@@ -30,11 +20,9 @@ public class CustomerIndexPage : BasePage
         {
             CreateCustomerButton = FindElement(By.XPath("/html/body/div/main/p/a"));
             ClickElement(CreateCustomerButton);
+            return;
         }
-        else
-        {
-            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
-        }
+        throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
     }
 
 
@@ -44,33 +32,24 @@ public class CustomerIndexPage : BasePage
         {
             var link = FindElement(By.XPath($"//tr[@id='{customerId}']//td[6]/a[text()='{action}']"));
             ClickElement(link);
+            return;
         }
-        else
-        {
-            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the button.");
-        }
-    }
-    public void ClickEditLinkById(string customerId)
-    {
-        ClickLinkByActionAndId(customerId, "Edit");
+
+        throw new NoSuchElementException("The expected index page is not loaded. Unable to click the button.");
+
     }
 
-    public void ClickDetailsLinkById(string customerId)
-    {
-        ClickLinkByActionAndId(customerId, "Details");
-    }
+    public void ClickEditLinkById(string customerId) => ClickLinkByActionAndId(customerId, "Edit");
 
-    public void ClickDeleteLinkById(string customerId)
-    {
-        ClickLinkByActionAndId(customerId, "Delete");
-    }
 
-    public string GetFirstCustomerId()
-    {
-        var customerId = FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
+    public void ClickDetailsLinkById(string customerId) => ClickLinkByActionAndId(customerId, "Details");
 
-        return customerId;
-    }
+
+    public void ClickDeleteLinkById(string customerId) => ClickLinkByActionAndId(customerId, "Delete");
+
+
+    public string GetFirstCustomerId() => FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
+
 
     public bool IsSuccessMessageDisplayed(string expectedMessage)
     {
@@ -93,13 +72,12 @@ public class CustomerIndexPage : BasePage
         }
     }
 
-   
 
     public void HandleDeleteConfirmation(string expectedMessage)
     {
         try
         {
-           Thread.Sleep(200);   
+            Thread.Sleep(200);
             IAlert alert = driver.SwitchTo().Alert();
 
             if (alert.Text == expectedMessage)
@@ -111,7 +89,7 @@ public class CustomerIndexPage : BasePage
                 Console.WriteLine("Unexpected alert message: " + alert.Text);
             }
 
-          
+
         }
         catch (NoAlertPresentException)
         {
@@ -119,5 +97,39 @@ public class CustomerIndexPage : BasePage
         }
     }
 
+    public bool IsDataDisplayed()
+    {
+        try
+        {
+            if (IsIndexPage())
+            {
+                var tableElementPresent = IsElementPresent(By.XPath("/html/body/div/main/table"));
+              
+                if (tableElementPresent)
+                {
+                    return true;
+                }
+
+                //var paragraphElementPresent = IsElementPresent(By.XPath("/html/body/div/main/p[2]"));
+                //if (paragraphElementPresent)
+                //{
+                //    return false;
+                //}
+
+                return false;
+
+            }
+            else
+            {
+                throw new NoSuchElementException("The expected index page is not loaded. Unable to check if data is displayed.");
+            }
+        }
+        catch (NoSuchElementException)
+        {
+            return false;
+        }
+    }
 
 }
+
+

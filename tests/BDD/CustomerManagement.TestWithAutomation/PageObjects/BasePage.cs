@@ -23,7 +23,9 @@ public abstract class BasePage
     }
 
     public IWebElement FindElement(By locator) => wait.Until(ExpectedConditions.ElementIsVisible(locator));
+
     public void NavigateTo(string relativePath) => driver.Navigate().GoToUrl(_baseUrl + relativePath);
+
     public void ClickElement(By locator)
     {
         wait.Until(ExpectedConditions.ElementToBeClickable(locator));
@@ -37,6 +39,22 @@ public abstract class BasePage
     }
 
     public string GetCurrentUrl() => driver.Url;
+
+
+    public bool IsElementPresent(By locator)
+    {
+        try
+        {
+            var element = driver.FindElement(locator);
+            return element != null && element.Displayed;
+        }
+        catch (NoSuchElementException)
+        {
+            return false;
+        }
+    }
+
+
 
     public Guid ExtractUserIdFromUrl(string url)
     {
