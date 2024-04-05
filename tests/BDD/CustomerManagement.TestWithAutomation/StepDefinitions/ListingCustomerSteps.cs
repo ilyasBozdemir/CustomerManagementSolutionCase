@@ -1,6 +1,5 @@
 ﻿using CustomerManagement.TestWithAutomation.PageObjects.Pages;
 using Serilog;
-using Xunit;
 
 namespace CustomerManagement.TestWithAutomation.StepDefinitions;
 

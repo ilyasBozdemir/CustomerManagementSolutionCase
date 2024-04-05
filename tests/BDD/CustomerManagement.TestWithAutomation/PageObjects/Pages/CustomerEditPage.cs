@@ -1,12 +1,24 @@
 ﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
+using CustomerManagement.TestWithAutomation.Constant;
 using Serilog;
+using Xunit.Sdk;
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 public class CustomerEditPage : BasePage
 {
+
+    public readonly string FirstNameInputXPath = "//*[@id=\"FirstName\"]";
+    public readonly string LastNameInputXPath = "//*[@id=\"LastName\"]";
+    public readonly string DateOfBirthInputXPath = "//*[@id=\"DateOfBirth\"]";
+    public readonly string PhoneNumberInputXPath = "//*[@id=\"PhoneNumber\"]";
+    public readonly string EmailInputXPath = "//*[@id=\"Email\"]";
+    public readonly string BankAccountNumberInputXPath = "//*[@id=\"BankAccountNumber\"]";
+    public readonly string CustomerEditSaveButtonXPath = "/html/body/div/main/form/button";
+
+
     private readonly string _userId;
 
-    public IWebElement CustomerEditSaveButton;
+  
     public string Url => GetUrl();
     public string UserId => _userId;
     public CustomerEditPage(string userId)
@@ -24,18 +36,18 @@ public class CustomerEditPage : BasePage
         }
         else
         {
-            throw new NoSuchElementException("The expected edit page is not loaded. Unable to perform the action.");
+            throw new NoSuchElementException(ErrorMessages.EditPageNotLoaded);
         }
     }
 
     public void FillCustomerFirstName(string FirstName)
     {
-        FillInputElement(By.XPath("//*[@id=\"FirstName\"]"), FirstName);
+        FillInputElement(By.XPath(FirstNameInputXPath), FirstName);
     }
 
     public void FillCustomerLastName(string LastName)
     {
-        FillInputElement(By.XPath("//*[@id=\"LastName\"]"), LastName);
+        FillInputElement(By.XPath(LastNameInputXPath), LastName);
     }
 
     public bool IsCustomerInformationUpdated()
@@ -57,12 +69,11 @@ public class CustomerEditPage : BasePage
     {
         if (IsEditPage())
         {
-            CustomerEditSaveButton = FindElement(By.XPath("/html/body/div/main/form/button"));
-            ClickElement(CustomerEditSaveButton);
+            ClickElement(FindElement(By.XPath(CustomerEditSaveButtonXPath)));
         }
         else
         {
-            throw new NoSuchElementException("The expected edit page is not loaded. Unable to click the customer edit save Button.");
+            throw new NoSuchElementException(ErrorMessages.EditPageNotLoaded);
         }
     }
 }

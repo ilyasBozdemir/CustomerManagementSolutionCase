@@ -1,11 +1,13 @@
 ﻿using CustomerManagement.BDD.TestWithAutomation.PageObjects;
+using CustomerManagement.TestWithAutomation.Constant;
 
 namespace CustomerManagement.TestWithAutomation.PageObjects.Pages;
 
 public class CustomerIndexPage : BasePage
 {
-    public IWebElement CreateCustomerButton;
-
+    public readonly string CreateCustomerButtonFormXPath = "/html/body/div/main/p/a";
+    public readonly string TableXPath = "/html/body/div/main/table";
+    public readonly string TableFirsRowXPath = "//table/tbody/tr[1]";
     public string Url => _baseUrl + "/Customer";
 
     public CustomerIndexPage() : base() { }
@@ -18,11 +20,10 @@ public class CustomerIndexPage : BasePage
     {
         if (IsIndexPage())
         {
-            CreateCustomerButton = FindElement(By.XPath("/html/body/div/main/p/a"));
-            ClickElement(CreateCustomerButton);
+            ClickElement(FindElement(By.XPath(CreateCustomerButtonFormXPath)));
             return;
         }
-        throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+        throw new NoSuchElementException(ErrorMessages.IndexPageNotLoaded);
     }
 
 
@@ -50,7 +51,7 @@ public class CustomerIndexPage : BasePage
 
     public string GetFirstCustomerId()
     {
-        string result = FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
+        string result = FindElement(By.XPath(TableFirsRowXPath)).GetAttribute("id");
 
         if (result is null)
         {
@@ -112,7 +113,7 @@ public class CustomerIndexPage : BasePage
         {
             if (IsIndexPage())
             {
-                var tableElementPresent = IsElementPresent(By.XPath("/html/body/div/main/table"));
+                var tableElementPresent = IsElementPresent(By.XPath(TableXPath));
               
                 if (tableElementPresent)
                 {
@@ -130,7 +131,7 @@ public class CustomerIndexPage : BasePage
             }
             else
             {
-                throw new NoSuchElementException("The expected index page is not loaded. Unable to check if data is displayed.");
+                throw new NoSuchElementException(ErrorMessages.DataDisplayCheckFailed);
             }
         }
         catch (NoSuchElementException)
