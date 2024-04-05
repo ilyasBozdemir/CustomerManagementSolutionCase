@@ -1,7 +1,9 @@
-﻿using CustomerManagement.Infrastructure.Services;
-using CustomerManagement.TestWithAutomation.Drivers;
-using Serilog;
+﻿using Serilog;
 using TechTalk.SpecFlow.Bindings;
+using CustomerManagement.Infrastructure.Services;
+using CustomerManagement.TestWithAutomation.Constant;
+using CustomerManagement.TestWithAutomation.Drivers;
+
 
 namespace CustomerManagement.TestWithAutomation.Hooks;
 
@@ -15,9 +17,8 @@ public class Hooks
     [BeforeTestRun]
     public static void BeforeTestRun()
     {
-        string rootDirectory = @"D:\CustomerManagementCase";
         _loggerService = new LoggerService();
-        _loggerService.InitializeLogger(rootDirectory);
+        _loggerService.InitializeLogger(AppTestConstants.exportRootDirectory);
         _logger = _loggerService.GetLogger();
         _logger.Information("Tests started.");
         WebDriverFactory.InitializeWebDriver();
@@ -32,10 +33,14 @@ public class Hooks
     }
 
     [BeforeScenario]
-    public static void BeforeScenario()
+    public static void BeforeScenario(FeatureContext featureContext, ScenarioContext scenarioContext)
     {
-        _logger.Information("Scenario started.");
+        string featureName = featureContext.FeatureInfo.Title;
+        string scenarioName = scenarioContext.ScenarioInfo.Title;
+
+        _logger.Information($"Scenario '{scenarioName}' of feature '{featureName}' started.");
     }
+
 
     [BeforeStep]
     public static void BeforeStep(ScenarioContext scenarioContext)
@@ -105,10 +110,14 @@ public class Hooks
     }
 
     [AfterScenario]
-    public static void AfterScenario()
+    public static void AfterScenario(FeatureContext featureContext, ScenarioContext scenarioContext)
     {
-        _logger.Information("Scenario finished.");
+        string featureName = featureContext.FeatureInfo.Title;
+        string scenarioName = scenarioContext.ScenarioInfo.Title;
+
+        _logger.Information($"Scenario '{scenarioName}' of feature '{featureName}' finished.");
     }
+
 
     [AfterFeature]
     public static void AfterFeature()

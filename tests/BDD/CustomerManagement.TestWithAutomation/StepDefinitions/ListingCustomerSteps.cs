@@ -30,9 +30,7 @@ public class ListingCustomerSteps
     [Then(@"the user sees the current customer list\.")]
     public void ThenTheUserShouldSeeATableWithCustomerInformation()
     {
-        bool isDataDisplayed = _indexPage.IsDataDisplayed();
-
-        if (isDataDisplayed)
+        if (_indexPage.IsDataDisplayed())
             Log.Information("The table with customer information is displayed.");
         else
             Log.Warning("The table with customer information is not displayed.");

@@ -103,4 +103,18 @@ public class CustomerCreatePage : BasePage
             return false;
         }
     }
+
+    public bool IsErrorMessageDisplayed(string errorMessage)
+    {
+        try
+        {
+            var errorMessageElement = driver.FindElement(By.XPath($"//*[contains(text(), '{errorMessage}')]"));
+            return errorMessageElement.Displayed;
+        }
+        catch (NoSuchElementException)
+        {
+            return false;
+        }
+    }
+
 }

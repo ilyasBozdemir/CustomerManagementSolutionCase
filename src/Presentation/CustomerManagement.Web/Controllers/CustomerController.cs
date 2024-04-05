@@ -39,7 +39,11 @@ public class CustomerController : Controller
     }
 
     [HttpGet]
-    public IActionResult Create() => View();
+    public IActionResult Create()
+    {
+
+        return View();
+    }
 
     [HttpPost]
     [ValidateAntiForgeryToken]
@@ -55,6 +59,12 @@ public class CustomerController : Controller
             }
             else
             {
+
+                if (result.StatusCode == 409)
+                {
+                    TempData["ErrorMessage"] = "Customer with the same data already exists.";
+                }
+
                 string errorMessage = string.Join(", ", result.Errors);
                 ModelState.AddModelError("", errorMessage);
             }

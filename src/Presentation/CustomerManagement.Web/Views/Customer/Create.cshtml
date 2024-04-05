@@ -36,12 +36,13 @@
         <input asp-for="BankAccountNumber" class="form-control" />
         <span asp-validation-for="BankAccountNumber" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Create</button>
-    <a asp-action="Index">Back to List</a>
+    <button type="submit" class="btn btn-primary mt-2">Create</button>
+    <a asp-action="Index" class="mb-2">Back to List</a>
 </form>
 
 @{
     var successMessage = TempData["SuccessMessage"] as string;
+    var errorMessage = TempData["ErrorMessage"] as string;
 }
 
 @if (!string.IsNullOrEmpty(successMessage))
@@ -57,3 +58,9 @@
     </script>
 }
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger" role="alert">
+        @errorMessage
+    </div>
+}

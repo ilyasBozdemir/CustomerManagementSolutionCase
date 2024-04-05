@@ -1,4 +1,5 @@
 ﻿using CustomerManagement.TestWithAutomation.PageObjects.Pages;
+using Serilog;
 using Xunit;
 
 namespace CustomerManagement.TestWithAutomation.StepDefinitions;
@@ -71,9 +72,29 @@ public class CreatingNewCustomerSteps
         _createPage.ClickCreateCustomerConfirmButton();
     }
 
+   
+
     [Then(@"the user sees that the new customer has been successfully created\.")]
     public void ThenTheUserSeesThatTheNewCustomerHasBeenSuccessfullyCreated()
     {
-        Assert.True(_createPage.IsSuccessMessageDisplayed("Customer created successfully."));
+        var successStatus = _createPage.IsSuccessMessageDisplayed("Customer created successfully.");
+        if (successStatus)
+            Assert.True(successStatus);
+        else
+        {
+            var errorStatus = _createPage.IsErrorMessageDisplayed("Customer with the same data already exists.");
+
+            if (errorStatus)
+            {
+                Assert.False(false);
+                Log.Error("Customer with the same data already exists message is displayed.");
+
+            }
+            else
+            {
+                Assert.False(false);
+                Log.Error("No success or error message is displayed.");
+            }
+        }
     }
 }

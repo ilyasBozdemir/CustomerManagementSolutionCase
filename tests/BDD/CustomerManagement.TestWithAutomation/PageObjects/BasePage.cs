@@ -22,23 +22,38 @@ public abstract class BasePage
         wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
     }
 
+
+
     public IWebElement FindElement(By locator) => wait.Until(ExpectedConditions.ElementIsVisible(locator));
 
+
+
     public void NavigateTo(string relativePath) => driver.Navigate().GoToUrl(_baseUrl + relativePath);
+
+
 
     public void ClickElement(By locator)
     {
         wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         FindElement(locator).Click();
     }
+
+
+
     public void ClickElement(IWebElement element) => wait.Until(ExpectedConditions.ElementToBeClickable(element)).Click();
+
+
+
     public void SendKeysToElement(By locator, string text)
     {
         wait.Until(ExpectedConditions.ElementIsVisible(locator));
         FindElement(locator).SendKeys(text);
     }
 
+
+
     public string GetCurrentUrl() => driver.Url;
+
 
 
     public bool IsElementPresent(By locator)
@@ -75,7 +90,11 @@ public abstract class BasePage
 
     public string GetTextFromElement(By locator) => FindElement(locator).Text;
 
+
+
     public IList<IWebElement> FindAllElements(By locator) => driver.FindElements(locator);
+
+
 
     public void HoverOverElement(By locator)
     {
@@ -84,6 +103,8 @@ public abstract class BasePage
         actions.MoveToElement(element).Perform();
     }
 
+
+
     public void ScrollIntoElement(By locator)
     {
         var element = FindElement(locator);
@@ -91,9 +112,15 @@ public abstract class BasePage
         js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
     }
 
+
+
     public string GetTitle() => driver.Title;
 
+
+
     public bool IsDisplayed(By locator) => FindElement(locator).Displayed;
+
+
 
     public void TypeText(By locator, string text)
     {
@@ -101,11 +128,15 @@ public abstract class BasePage
         FindElement(locator).SendKeys(text);
     }
 
+
+
     public IList<IWebElement> FindChildElements(By parentLocator, By childLocator)
     {
         var parentElement = FindElement(parentLocator);
         return parentElement.FindElements(childLocator);
     }
+
+
 
     public void ScrollIntoElementAndClick(By locator)
     {
@@ -113,9 +144,15 @@ public abstract class BasePage
         ClickElement(locator);
     }
 
+
+
     public void SetPageLoadTimeout(TimeSpan timeout) => driver.Manage().Timeouts().PageLoad = timeout;
 
+
+
     public void SetImplicitWait(TimeSpan timeout) => driver.Manage().Timeouts().ImplicitWait = timeout;
+
+
 
     public void WaitUntilAlertIsPresent()
     {
@@ -128,5 +165,7 @@ public abstract class BasePage
             Console.WriteLine("No alert present.");
         }
     }
+
+
 
 }

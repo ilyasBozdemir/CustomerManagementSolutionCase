@@ -52,7 +52,7 @@ public class CreateCustomerCommandHandler : IRequestHandler<CreateCustomerComman
                     {
                         Success = addedState.Result,
                         StatusCode = 400,
-                        Errors = new[] { "Customer with the same data already exists." }
+                        Errors = new[] { "Failed to create customer. Please try again later." }
                     };
                 }
             }
