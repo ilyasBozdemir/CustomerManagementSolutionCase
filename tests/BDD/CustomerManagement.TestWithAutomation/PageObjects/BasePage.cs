@@ -22,33 +22,21 @@ public abstract class BasePage
         wait.Until(driver => ((IJavaScriptExecutor)driver).ExecuteScript("return document.readyState").Equals("complete"));
     }
 
-    public IWebElement FindElement(By locator)
-    {
-        return wait.Until(ExpectedConditions.ElementIsVisible(locator));
-    }
-    public void NavigateTo(string relativePath)
-    {
-        driver.Navigate().GoToUrl(_baseUrl + relativePath);
-    }
+    public IWebElement FindElement(By locator) => wait.Until(ExpectedConditions.ElementIsVisible(locator));
+    public void NavigateTo(string relativePath) => driver.Navigate().GoToUrl(_baseUrl + relativePath);
     public void ClickElement(By locator)
     {
         wait.Until(ExpectedConditions.ElementToBeClickable(locator));
         FindElement(locator).Click();
     }
-    public  void ClickElement(IWebElement element)
-    {
-        wait.Until(ExpectedConditions.ElementToBeClickable(element)).Click();
-    }
+    public void ClickElement(IWebElement element) => wait.Until(ExpectedConditions.ElementToBeClickable(element)).Click();
     public void SendKeysToElement(By locator, string text)
     {
         wait.Until(ExpectedConditions.ElementIsVisible(locator));
         FindElement(locator).SendKeys(text);
     }
 
-    public string GetCurrentUrl()
-    {
-        return driver.Url;
-    }
+    public string GetCurrentUrl() => driver.Url;
 
     public Guid ExtractUserIdFromUrl(string url)
     {
@@ -67,15 +55,9 @@ public abstract class BasePage
 
 
 
-    public string GetTextFromElement(By locator)
-    {
-        return FindElement(locator).Text;
-    }
+    public string GetTextFromElement(By locator) => FindElement(locator).Text;
 
-    public IList<IWebElement> FindAllElements(By locator)
-    {
-        return driver.FindElements(locator);
-    }
+    public IList<IWebElement> FindAllElements(By locator) => driver.FindElements(locator);
 
     public void HoverOverElement(By locator)
     {
@@ -91,15 +73,9 @@ public abstract class BasePage
         js.ExecuteScript("arguments[0].scrollIntoView(true);", element);
     }
 
-    public string GetTitle()
-    {
-        return driver.Title;
-    }
+    public string GetTitle() => driver.Title;
 
-    public bool IsDisplayed(By locator)
-    {
-        return FindElement(locator).Displayed;
-    }
+    public bool IsDisplayed(By locator) => FindElement(locator).Displayed;
 
     public void TypeText(By locator, string text)
     {
@@ -119,15 +95,9 @@ public abstract class BasePage
         ClickElement(locator);
     }
 
-    public void SetPageLoadTimeout(TimeSpan timeout)
-    {
-        driver.Manage().Timeouts().PageLoad = timeout;
-    }
+    public void SetPageLoadTimeout(TimeSpan timeout) => driver.Manage().Timeouts().PageLoad = timeout;
 
-    public void SetImplicitWait(TimeSpan timeout)
-    {
-        driver.Manage().Timeouts().ImplicitWait = timeout;
-    }
+    public void SetImplicitWait(TimeSpan timeout) => driver.Manage().Timeouts().ImplicitWait = timeout;
 
     public void WaitUntilAlertIsPresent()
     {
