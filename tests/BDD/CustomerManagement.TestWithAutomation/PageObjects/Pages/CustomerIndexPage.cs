@@ -3,6 +3,7 @@ using CustomerManagement.BDD.TestWithAutomation.PageObjects;
 using CustomerManagement.Domain.Seedwork;
 using MediatR;
 using Moq;
+using SeleniumExtras.WaitHelpers;
 using Serilog;
 using System.Security.Policy;
 
@@ -37,75 +38,45 @@ public class CustomerIndexPage : BasePage
     }
 
 
-    public void ClickEditLinkById(Guid customerId)
+    private void ClickLinkByActionAndId(string customerId, string action)
     {
         if (IsIndexPage())
         {
-            var editLink = FindElement(By.XPath($"//tr[@id='{customerId.ToString()}']//td[6]/a[text()='Edit']"));
-            ClickElement(editLink);
+            var link = FindElement(By.XPath($"//tr[@id='{customerId}']//td[6]/a[text()='{action}']"));
+            ClickElement(link);
         }
         else
         {
-            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
+            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the button.");
         }
     }
-
-    public void ClickDetailsLinkById(Guid customerId)
+    public void ClickEditLinkById(string customerId)
     {
-        if (IsIndexPage())
-        {
-            var detailsLink = FindElement(By.XPath($"//tr[@id='{customerId.ToString()}']//td[6]/a[text()='Details']"));
-            ClickElement(detailsLink);
-        }
-        else
-        {
-            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
-        }
+        ClickLinkByActionAndId(customerId, "Edit");
     }
 
-    public void ClickDeleteLinkById(Guid customerId)
+    public void ClickDetailsLinkById(string customerId)
     {
-        if (IsIndexPage())
-        {
-            var deleteLink = FindElement(By.XPath($"//tr[@id='{customerId.ToString()}']//td[6]/a[text()='Delete']"));
-            ClickElement(deleteLink);
-        }
-        else
-        {
-            throw new NoSuchElementException("The expected index page is not loaded. Unable to click the Create Customer button.");
-        }
-       
+        ClickLinkByActionAndId(customerId, "Details");
     }
 
-    public void HandleDeleteConfirmation(string expectedMessage)
+    public void ClickDeleteLinkById(string customerId)
     {
-        try
-        {
-            IAlert alert = driver.SwitchTo().Alert();
-
-            if (alert.Text == expectedMessage)
-            {
-                alert.Accept();
-                driver.SwitchTo().DefaultContent();
-            }
-            else
-            {
-                Console.WriteLine("Unexpected alert message: " + alert.Text);
-            }
-        }
-        catch (NoAlertPresentException)
-        {
-            Console.WriteLine("No alert present.");
-        }
+        ClickLinkByActionAndId(customerId, "Delete");
     }
 
+    public string GetFirstCustomerId()
+    {
+        var customerId = FindElement(By.XPath("//table/tbody/tr[1]")).GetAttribute("id");
 
+        return customerId;
+    }
 
     public bool IsSuccessMessageDisplayed(string expectedMessage)
     {
         try
         {
-            Thread.Sleep(1000);
+            WaitUntilAlertIsPresent();
             IAlert alert = base.driver.SwitchTo().Alert();
 
             if (alert.Text == expectedMessage)
@@ -122,18 +93,31 @@ public class CustomerIndexPage : BasePage
         }
     }
 
-    public async Task<Guid> GetFirstCustomerFromDatabase()// testing
+   
+
+    public void HandleDeleteConfirmation(string expectedMessage)
     {
-        var unitOfWork = new Mock<IUnitOfWork>();
-        var mediator = new Mock<IMediator>();
+        try
+        {
+           Thread.Sleep(200);   
+            IAlert alert = driver.SwitchTo().Alert();
 
+            if (alert.Text == expectedMessage)
+            {
+                alert.Accept();
+            }
+            else
+            {
+                Console.WriteLine("Unexpected alert message: " + alert.Text);
+            }
 
-
-        var handler = new GetCustomersQueryHandler(unitOfWork.Object, mediator.Object);
-
-        var response = await handler.Handle(new GetCustomersQueryRequest(), default);
-
-
-        return response.Pagination.Items[0].Id;
+          
+        }
+        catch (NoAlertPresentException)
+        {
+            Console.WriteLine("No alert present.");
+        }
     }
+
+
 }

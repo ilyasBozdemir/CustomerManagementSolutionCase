@@ -41,9 +41,9 @@ else
                         <td>@customer.Email</td>
                         <td>@customer.BankAccountNumber</td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@customer.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@customer.Id">Details</a> |
-                            <a class="delete-customer" data-customer-id="@customer.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@customer.Id" style="cursor:pointer">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@customer.Id" style="cursor:pointer">Details</a> |
+                            <a class="delete-customer" data-customer-id="@customer.Id" style="cursor:pointer">Delete</a>
                         </td>
                     </tr>
                 }

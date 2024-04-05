@@ -24,7 +24,6 @@ public abstract class BasePage
 
     public IWebElement FindElement(By locator)
     {
-    
         return wait.Until(ExpectedConditions.ElementIsVisible(locator));
     }
     public void NavigateTo(string relativePath)
@@ -128,6 +127,18 @@ public abstract class BasePage
     public void SetImplicitWait(TimeSpan timeout)
     {
         driver.Manage().Timeouts().ImplicitWait = timeout;
+    }
+
+    public void WaitUntilAlertIsPresent()
+    {
+        try
+        {
+            wait.Until(ExpectedConditions.AlertIsPresent());
+        }
+        catch (NoAlertPresentException)
+        {
+            Console.WriteLine("No alert present.");
+        }
     }
 
 }
