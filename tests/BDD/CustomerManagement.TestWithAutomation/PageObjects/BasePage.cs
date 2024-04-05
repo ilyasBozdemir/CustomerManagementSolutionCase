@@ -11,7 +11,7 @@ public abstract class BasePage
     protected IWebDriver driver;
     protected WebDriverWait wait;
     protected Actions actions;
-    protected const string _baseUrl = AppTestConstants.BaseUrl;
+    protected const string _baseUrl = AppTestConstants.BaseHttpsUrl;
 
     private readonly HttpClient _httpClient;
 
